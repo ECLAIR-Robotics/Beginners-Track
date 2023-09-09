@@ -49,7 +49,7 @@
 
 ***RPI.GPIO libraries don't run unless you run them on a Raspberry Pi. So you will have to SSH into a Raspberry Pi to test the code.***
 
-<Only for the first Time>
+**Only for the first Time**
 
 - `ssh testuser@<ip address>` - SSH into the Raspberry Pi
 - `sudo useradd -m <username>` - Create a new user based on your team name
@@ -59,17 +59,17 @@
 - `cd <teamname>` - Change directory
 - `git clone git@github.com:ECLAIR-Robotics/Beginners-Track.git` - Clone the repo
 
-<For every time next time>
+**For every time next time**
 
 - Use the VS Code SSH extension to connect to the Raspberry Pi
 - Use the open folder option to open the folder you cloned the repo into
 - Use the terminal in VS Code to run the code
 
 
-<INSERT LEAD NAME HERE>
+_INSERT LEAD NAME HERE_
 
 **Team Members**
-<INSERT NAME HERE>
+_INSERT NAME HERE_
 
 
 
