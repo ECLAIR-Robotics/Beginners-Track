@@ -1,5 +1,5 @@
 # Beginners-Track
-## Repository for the beginner's track. **Fork this repo and add me to the repo** before your sub-team starts working
+## Repository for the beginner's track. **Make your own branch for this repo and name it team/<teamname>** before your sub-team starts working
 
 ### Overview
 - There is a folder for backend and frontend each. There's separate read me files for each of them.
