@@ -1,6 +1,5 @@
 blinker==1.6.2
 click==8.1.7
-demo-nodes-py==0.9.4
 domain-coordinator==0.9.2
 Flask==2.3.3
 Flask-Cors==4.0.0
