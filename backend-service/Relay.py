@@ -1,25 +1,26 @@
 import RPi.GPIO as GPIO
-import time 
+
 class Relay:
+    def __init__(self, id: int):
+        self.id = id
+        self.state = False
 
-    def __init__(self, relay_pin, gpio_pin):
-        self.relay_pin = relay_pin
-        self.gpio_pin = gpio_pin
         GPIO.setmode(GPIO.BOARD)
-        GPIO.setup(self.gpio_pin, GPIO.OUT)
-        GPIO.output(self.gpio_pin, GPIO.LOW)
+        GPIO.setup(self.id, GPIO.OUT)
 
-    def setState (self, state: bool):
+        GPIO.output(self.id, self.state)
+    
+    def __init__(self, id: int, state: bool):
+        self(id)
+        self.setState(state)
+
+    def setState(self, state: bool):
         self.state = state
-        if (state):
-            GPIO.output(self.gpio_pin, GPIO.HIGH)
-        else:
-            GPIO.output(self.gpio_pin, GPIO.LOW)
+        GPIO.output(self.id, self.state)
         
-
     def getID(self):
-        return self.relay_pin
+        return self.id
 
     def getRelayState(self):
-        return self.gpio_pin
+        return self.state
         
