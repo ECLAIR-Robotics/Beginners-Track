@@ -1,0 +1,34 @@
+body {
+    background-color: #ffe1bc;
+}
+  
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
+}
+
+#Title{
+    text-align: center;
+}
+
+.Grid-Container {
+    display: grid;
+    column-gap: 1000px;
+    row-gap: 2rem;
+    background-color: red;
+}
+
+.item1{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+.item2{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+  
