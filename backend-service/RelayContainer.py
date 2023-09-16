@@ -1,3 +1,5 @@
+# the following was combined with the Relay class in embedded
+"""
 import Relay
 
 class RelayContainer:
@@ -47,4 +49,4 @@ class RelayContainer:
             if relay.getID() == id:
                 relay.setState(state)
                 return True
-        
+"""
