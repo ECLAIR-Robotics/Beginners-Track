@@ -54,7 +54,7 @@
 - `ssh testuser@<ip address>` - SSH into the Raspberry Pi
 - `sudo useradd -m <username>` - Create a new user based on your team name
 - `sudo passwd <username>` - Set a password for the user
-- `sudo usermod -aG sudo <username>` - Add the user to the sudo group
+- `sudo usermod -a -G sudo <username>` - Add the user to the sudo group
 - `mkdir <teamname>` - Make a new folder
 - `cd <teamname>` - Change directory
 - `git clone git@github.com:ECLAIR-Robotics/Beginners-Track.git` - Clone the repo
