@@ -66,16 +66,10 @@
 - Use the terminal in VS Code to run the code
 
 
-Krithi
+_INSERT LEAD NAME HERE_
 
 **Team Members**
-Pavani
-ThienAn
-Ben
-Krishna
-Marcus
-Shreya
-Loreni
+_INSERT NAME HERE_
 
 
 
