@@ -1,0 +1,27 @@
+.testbutton-enabled {
+    background-color: #4CAF50;
+    /* Green */
+    border: none;
+    color: white;
+    padding: 1em 3em;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+    user-select: none;
+    width: 6em;
+}
+
+.testbutton-disabled {
+    background-color: red;
+    /* Red */
+    border: none;
+    color: white;
+    padding: 1em 3em;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+    user-select: none;
+    width: 6em;
+}
