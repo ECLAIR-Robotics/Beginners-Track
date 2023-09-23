@@ -1,17 +1,13 @@
 #make our imports here
-try:
-    import RPi.GPIO as GPIO
-except RuntimeError:
-    print("Error importing RPi.GPIO!  This is probably because you need superuser privileges."  
-    + "You can achieve this by using 'sudo' to run your script")
 
 # This will be where we will create our relay class 
 class Relay:
 
     #define our Relay object
     def __init__(self, id):
-        #get initialized with proper values
+        #GPIO pin
         self.pin_id = id
+        #Active/Inactive
         self.state = False
     #switches the state of the pin to its opposite
     def setState(self, input_state):
@@ -21,9 +17,13 @@ class Relay:
     def getID(self):
         return self.pin_id
     
+    #gets the state of the relay
     def getRelayState(self):
         return self.state
 
+    #prints out the contents of relay
+    def toString(self):
+        print("ID: %d , State: %r" % (self.getID(), self.getRelayState()))
 
 
     
