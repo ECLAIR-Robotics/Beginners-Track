@@ -1,15 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import Footer from './Footer'; 
 import ButtonGrid from './ButtonGrid';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
 root.render(
   <React.StrictMode>
     <ButtonGrid />
+    <Footer/> 
+    <Footer/> 
+    <Footer/>
+    <Footer/>
   </React.StrictMode>
 );
 
