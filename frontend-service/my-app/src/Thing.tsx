@@ -9,7 +9,12 @@ function Thing() {
 
     <header>
       <p> This is just a test for the frontend of the E-Clair Beginner's Track project. </p>
-      <div className='container'>
+      <div className='flex-container'>
+        <TestButton />
+        <TestButton />
+        <TestButton />
+        <TestButton />
+        <TestButton />
         <TestButton />
       </div>
     </header>

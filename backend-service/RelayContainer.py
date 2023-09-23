@@ -1,9 +1,11 @@
-import Relay
+from embedded import Relay
 
 class RelayContainer:
-    def __init__(self):
-        self.relays: [Relay] = []
     
+    def __init__(self):
+        self.container = []
+        print("RelayContainer Initialized")
+        
     def str(self):
         print(f"Container Size: {len(self.relays)}")
         print("ID\tState")
