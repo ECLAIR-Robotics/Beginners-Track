@@ -7,26 +7,23 @@ except RuntimeError:
 
 # This will be where we will create our relay class 
 class Relay:
-    #lets make a list of tuples, each tuple will contain a GPIO pin and then it's status
-    
-    #make empty list
-    chan_list = []
-    #run for loop
-    for x in range(0,26):
-        #make our tubles
-        chan_list.append((x+2, 0))
-
 
     #define our Relay object
-    def __init__(self):
+    def __init__(self, id):
+        #get initialized with proper values
+        self.pin_id = id
+        self.state = False
+    #switches the state of the pin to its opposite
+    def setState(self, input_state):
+        self.state = input_state
+    
+    #gets the pin id
+    def getID(self):
+        return self.pin_id
+    
+    def getRelayState(self):
+        return self.state
 
-        #GPIO already handles the pins as long as we have the list
-        
-        #this designates our GPIO pins to correspond to the pins
-        GPIO.setmode(GPIO.BOARD)
-
-
-        print("")
 
 
     
