@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import Footer from './Footer'; 
-import ButtonGrid from './ButtonGrid';
+import Footer from './components/Footer'; 
+import ButtonGrid from './components/ButtonGrid';
 import reportWebVitals from './reportWebVitals';
+import TestButton from './components/TestButton'; 
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -11,11 +12,10 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
+    <TestButton/> {/*remove this and import when you are done using it*/ }
     <ButtonGrid />
     <Footer/> 
-    <Footer/> 
-    <Footer/>
-    <Footer/>
+    
   </React.StrictMode>
 );
 
