@@ -1,3 +1,4 @@
+
 import sqlite3
 
 class Model:
@@ -14,7 +15,7 @@ class Model:
     def addRelay(id: int, state: bool, self):
         if self.checkIfRelayExists(id):
             raise ValueError("Relay already exists")
-        self.cursor.execute("INSERT INTO relays (relayID, relayState) VALUES (?,?)", (id, state))
+        self.cursor.execute("INSERT INTO relays (relayID, relayState) VALUES (%s,%s)", (id, state))
         self.connection.commit()
 
     def getRelayState(self, id: int):

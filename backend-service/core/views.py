@@ -17,8 +17,27 @@ def index():
 
 
 @app.route("/relay/on", methods = ["GET"])
+def relayOn():
+    con = RelayContainer()
+    if (con.getRelay(5)):
+        con.getRelay(5).setState(True)
+        return jsonify({"Relay has been turned on!"})
 
 
-@app.route("/add", methods=["GET"])
-def addTwoNumbers(a : int , b : int) -> int:
-    return a + b
+@app.route("relay/off", methods= ["GET"])
+def relayOff():
+    con = RelayContainer()
+    if (con.getRelay(5)):
+        con.getRelay(5).setState(False)
+        return jsonify({"Relay has been turned off!"})
+
+@app.route("relay/add", methods=["POST"])
+def addRelay():
+    con = RelayContainer()
+    con.addRelay(5, True)
+
+@app.route("relay/delete", methods=["POST"])
+def deleteRelay():
+    con = RelayContainer()
+    if (con.getRelay(5)):
+        con.removeRelay(5)
