@@ -2,7 +2,7 @@ import RPi.GPIO as GPIO
 import time 
 
 class Relay:
-
+    
     def __init__(self, relay_pin, gpio_pin):
         self.relay_pin = relay_pin
         self.gpio_pin = gpio_pin
