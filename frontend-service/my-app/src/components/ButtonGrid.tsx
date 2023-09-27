@@ -1,44 +1,39 @@
 import React from 'react';
 import logo from './logo.svg';
 import './ButtonGrid.css';
+import {useState} from 'react';
 
-function ButtonGrid() {
+interface Props {
+    id: number,
+}
+
+function ButtonGrid(props : Props) {
+
+        const [state, toggle] = useState("OFF");
+
+        const toggleOn = () => {
+            toggle("ON");
+            console.log('TURNING ON');
+        };
+
+        const toggleOff = () => {
+            toggle("OFF");
+            console.log('TURNING OFF');
+        };
+
   return (
-    <div>
-        <header>
-            <h1 id="Title">A very cool website</h1>
-        </header>
-
-        <div className='Grid-Container'>
+    <div className='Grid-Container'>
             
-            <div className="row">
-                <h2>Light #1</h2>
-            </div>
+        <div className="row">
+            <h2 id="b1">Light #{props.id}: {state}</h2>
+        </div>
 
-            <div className="row">
-                <div className ="col"><button className="on">On</button></div>
-                <div className ="col"><button className="off">Off</button></div>
-            </div>
+        <div className="row">
+            <div className ="col"><button onClick = {toggleOn} className="on">On</button></div>
+            <div className ="col"><button onClick = {toggleOff} className="off">Off</button></div>
+        </div>
 
-            <div className="row">
-                <h2>Light #2</h2>
-            </div>
-
-            <div className="row">
-                <div className ="col"><button className="on">On</button></div>
-                <div className ="col"><button className="off">Off</button></div>
-            </div>
-
-            <div className="row">
-                <h2>Light #3</h2>
-            </div>
-
-            <div className="row">
-                <div className ="col"><button className="on">On</button></div>
-                <div className ="col"><button className="off">Off</button></div>
-            </div>
-        </div> 
-    </div>
+    </div> 
   );
 }
 
