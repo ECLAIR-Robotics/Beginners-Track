@@ -8,9 +8,14 @@ function Thing() {
   return (
 
     <header>
-      <p> This is just a test for the frontend of the E-Clair Beginner's Track project. </p>
-      <div className='container'>
-        <TestButton />
+      <h1> Home Automation System </h1>
+      <div className="flex-container">
+        <TestButton text="Light #1"/>
+        <TestButton text="Light #2"/>
+        <TestButton text="Light #3"/>
+        <TestButton text="Placeholder #1"/>
+        <TestButton text="Placeholder #2"/>
+        <TestButton text="Placeholder #3"/>
       </div>
     </header>
 
@@ -18,4 +23,3 @@ function Thing() {
 }
 
 export default Thing;
-

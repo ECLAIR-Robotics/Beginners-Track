@@ -10,6 +10,7 @@
     font-size: 1em;
     user-select: none;
     width: 6em;
+    height: 1.5em;
 }
 
 .testbutton-disabled {
@@ -24,4 +25,5 @@
     font-size: 1em;
     user-select: none;
     width: 6em;
+    height: 1.5em;
 }

@@ -15,19 +15,25 @@ function TestButton(props : TestButtonProps) {
 
     if (buttonStatus) {
         return (
-            <div className='testbutton-enabled' onClick={(event) => {
-                setButtonStatus(false);
-            }} >
-                On
+            <div className="innerContainer">
+                <h4>{props.text}</h4>
+                <div className='testbutton-enabled' onClick={(event) => {
+                    setButtonStatus(false);
+                }} >
+                    On
+                </div>
             </div>
         )
     } else {
         return (
-            <div className='testbutton-disabled' onClick={(event) => {
-                console.log("clicked");
-                setButtonStatus(true);
-            }}>
-                Off
+            <div className="innerContainer">
+                <h4>{props.text}</h4>
+                <div className='testbutton-disabled' onClick={(event) => {
+                    console.log("clicked");
+                    setButtonStatus(true);
+                }}>
+                    Off
+                </div>
             </div>
         )
     }
