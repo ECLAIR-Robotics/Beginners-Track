@@ -1,5 +1,7 @@
 /* This is for the page decor only */
 
 body {
+  background-image: url('../public/blurry-gradient-haikei.svg');
+  background-size: cover;
   background-color: lightblue;
 }

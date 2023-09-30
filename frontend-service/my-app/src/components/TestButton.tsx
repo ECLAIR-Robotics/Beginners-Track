@@ -17,7 +17,7 @@ function TestButton(props : TestButtonProps) {
         return (
             <div className="innerContainer">
                 <h4>{props.text}</h4>
-                <div className='testbutton-enabled' onClick={(event) => {
+                <div className='testbutton-enabled button' onClick={(event) => {
                     setButtonStatus(false);
                 }} >
                     On
@@ -28,7 +28,7 @@ function TestButton(props : TestButtonProps) {
         return (
             <div className="innerContainer">
                 <h4>{props.text}</h4>
-                <div className='testbutton-disabled' onClick={(event) => {
+                <div className='testbutton-disabled button' onClick={(event) => {
                     console.log("clicked");
                     setButtonStatus(true);
                 }}>

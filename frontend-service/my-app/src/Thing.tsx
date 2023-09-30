@@ -13,9 +13,9 @@ function Thing() {
         <TestButton text="Light #1"/>
         <TestButton text="Light #2"/>
         <TestButton text="Light #3"/>
-        <TestButton text="Placeholder #1"/>
-        <TestButton text="Placeholder #2"/>
-        <TestButton text="Placeholder #3"/>
+        <TestButton text="Fan #1"/>
+        <TestButton text="Fan #2"/>
+        <TestButton text="Fan #3"/>
       </div>
     </header>
 
