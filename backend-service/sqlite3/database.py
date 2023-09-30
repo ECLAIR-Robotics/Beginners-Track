@@ -10,12 +10,8 @@ try:
     # Write a query and execute it with cursor
     query = 'select sqlite_version();'
     cursor.execute(query)
- 
-    # Fetch and output result
-    result = cursor.fetchall()
-    print('SQLite Version is {}'.format(result))
 
-    #cursor.execute("DROP TABLE COMPANY")
+    cursor.execute("DROP TABLE COMPANY")
     # Creates the database and assigns type values to variables
     cursor.execute('''CREATE TABLE COMPANY
          (ID INT PRIMARY KEY     NOT NULL,
@@ -23,16 +19,13 @@ try:
          STATUS         TEXT     NOT NULL,
          DESCRIPTION    TEXT    NOT NULL);''')
     
+    # Fetch and output result
     result = cursor.fetchall()
     print('SQLite Version is {}'.format(result))
 
     # Close the cursor
     cursor.close()
 
-    
-
-
- 
 # Handle errors
 except sqlite3.Error as error:
     print('Error occurred - ', error)
