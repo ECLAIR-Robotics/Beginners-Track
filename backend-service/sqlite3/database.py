@@ -1,39 +1,26 @@
 import sqlite3
 
-try:
-   
-    # Connect to DB and create a cursor
-    sqliteConnection = sqlite3.connect('sql.db')
-    cursor = sqliteConnection.cursor()
-    print('DB Init')
- 
-    # Write a query and execute it with cursor
-    query = 'select sqlite_version();'
-    cursor.execute(query)
-
-    cursor.execute("DROP TABLE COMPANY")
-    # Creates the database and assigns type values to variables
-    cursor.execute('''CREATE TABLE COMPANY
-         (ID INT PRIMARY KEY     NOT NULL,
-         NAME           TEXT     NOT NULL,
-         STATUS         TEXT     NOT NULL,
-         DESCRIPTION    TEXT    NOT NULL);''')
+class Database:
+    table_name = "table" # We only want one table so dont change this often (itll create a new one)
     
-    # Fetch and output result
-    result = cursor.fetchall()
-    print('SQLite Version is {}'.format(result))
+    def __init__(self):
+        self.con = sqlite3.connect("sql.db")
+        self.cursor = self.con.cursor()
+        # self.cursor.execute(f"CREATE TABLE {Database.table_name} (id INTEGER PRIMARY KEY, state bool);") # Uncomment this line and fill out thing and check if table already exists
 
-    # Close the cursor
-    cursor.close()
+    def setStatus(self, id, state):
+        self.cursor.execute("UPDATE "+ Database.table_name + " SET state = " + state + "WHERE id = " + id)
+        # alternitavly: self.cursor.execute(f"UPDATE {Database.table_name} SET state={state} WHERE id={id}")
+        return True
+    
 
-# Handle errors
-except sqlite3.Error as error:
-    print('Error occurred - ', error)
- 
-# Close DB Connection irrespective of success
-# or failure
-finally:
-   
-    if sqliteConnection:
-        sqliteConnection.close()
-        print('SQLite Connection closed')
+
+    '''
+        We will talk about next time:
+        try-catch
+        python formating
+        parameter and return checking
+        
+    '''
+
+
