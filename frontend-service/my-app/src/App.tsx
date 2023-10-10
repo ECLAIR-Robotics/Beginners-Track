@@ -1,6 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
+import TestImage from './static/Test.png'
 import './App.css';
+import './Maid (well, it IS a home automation system, and who takes care of homes).png'
 
 function App() {
   return (
@@ -18,6 +20,7 @@ function App() {
         >
           Learn React
         </a>
+        <img src={TestImage} className="Funny" alt="Maid"/>
       </header>
     </div>
   );

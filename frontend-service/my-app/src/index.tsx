@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Thing from './Thing'
+import Thing from './components/Card'
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

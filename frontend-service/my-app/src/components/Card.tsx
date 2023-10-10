@@ -1,13 +1,17 @@
 import React from 'react';
 import logo from './logo.svg';
+import TestImage from './static/Test.png'
 import './App.css';
-import './Thing.css';
-import TestButton from './components/TestButton'
+import './styles/Thing.css';
+import TestButton from './TestButton'
 
-function Thing() {
+function Card() {
   return (
 
     <header>
+      <img src={logo} className="App-logo" alt="logo" />
+      <img src={TestImage} className="Funny" alt="Maid" />
+      <h2> *Hey, it's a HOME Automation System, and who takes care of homes? Maids, of course! </h2>
       <h1> Home Automation System </h1>
       <div className="flex-container">
         <TestButton text="Light #1"/>
@@ -18,8 +22,9 @@ function Thing() {
         <TestButton text="Fan #3"/>
       </div>
     </header>
-
   );
 }
 
-export default Thing;
+
+
+export default Card;
