@@ -1,8 +1,8 @@
 import React from 'react';
-import logo from './logo.svg';
-import TestImage from './static/Test.png'
-import './App.css';
-import './styles/Thing.css';
+import logo from '../logo.svg';
+import TestImage from '../static/Test.png'
+import '../App.css';
+import '../styles/card.css';
 import TestButton from './TestButton'
 
 function Card() {
