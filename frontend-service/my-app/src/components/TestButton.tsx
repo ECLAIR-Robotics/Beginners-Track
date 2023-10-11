@@ -7,8 +7,9 @@ interface TestButtonProps {
     text?: String;
 }
 
+// fetch functions go in here
 
-function TestButton(props : TestButtonProps) {
+function TestButton(props: TestButtonProps) {
     let [buttonStatus, setButtonStatus] = useState(false);
 
     console.log(buttonStatus);
