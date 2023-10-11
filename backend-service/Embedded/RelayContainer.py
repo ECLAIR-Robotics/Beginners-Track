@@ -1,10 +1,5 @@
 from Relay import Relay
 
-try:
-    import RPi.GPIO as GPIO
-except RuntimeError:
-    print("Error importing RPi.GPIO!  This is probably because you need superuser privileges."  
-    + "You can achieve this by using 'sudo' to run your script")
 class RelayContainer:
     
     #create our container object
@@ -34,7 +29,7 @@ class RelayContainer:
             x.setState(False)
 
     #this will return whatever relay is in relay_container[idx]
-    def getRelayIndex(self, idx):
+    def getRelayIndex(self, idx) -> Relay:
         #check if it's out of range
         if(idx >= len(self.relay_container) or idx < 0):
             #we we don't want a array index out of bounds error, user gets nothing!
@@ -42,7 +37,7 @@ class RelayContainer:
         return self.relay_container[idx]
 
     #gets relay given a specified relay id, not the same as array index!
-    def getRelay(self, relay_id):
+    def getRelay(self, relay_id) -> Relay:
         for x in self.relay_container:
             if(x.getID() == relay_id):
                 return x
@@ -51,4 +46,7 @@ class RelayContainer:
 
     #remove a relay from the array
     def removeRelay(self, relay_id):
-        self.relay_container.remove(self.getRelay(relay_id))
+        #turn off GPIO pin when removing
+        offRelay = (self.getRelay(relay_id))
+        offRelay.setState(False)
+        self.relay_container.remove(offRelay)

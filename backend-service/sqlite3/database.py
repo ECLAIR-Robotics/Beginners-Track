@@ -68,6 +68,10 @@ class Database:
         Return:
             :return True if device was successfully dropped
         """
+        if(self.contains(id)):
+            self.cursor.execute(f"Delete from {Database.table_name} where id={id}")
+            return True
+        return False
     
 
     def setState(self, id: int, state: bool) -> bool:
