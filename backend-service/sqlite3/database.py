@@ -88,6 +88,8 @@ class Database:
         Raises:
             ValueError: If a device with the id doesn't exist
         """
+        
+        self.cursor.execute(f"UPDATE {Database.table_name} SET state = {state} WHERE id = {id}")
     
     
     def getAllDevices(self) -> list:
@@ -97,6 +99,7 @@ class Database:
         Return:
             :return list of all the devices in the database
         """
+
         
 
     
