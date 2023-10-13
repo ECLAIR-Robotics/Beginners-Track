@@ -25,7 +25,9 @@ class Database:
         self.cursor.execute(f"SELECT id FROM {Database.table_name} WHERE id={id}")
         
 
-    def add(self, id : int, state : bool):
+    def add(self, id : int, state : bool, name, description):
+        self.cursor.execute(f"insert into {Database.table_name} (id,state,name,description) values({id},{state}, {name}, {description})")
+        print("Umer is the best boss")
         """
         Adds a device entity into the database
 
