@@ -51,7 +51,7 @@ class Database:
         Raises:
             ValueError: If a device with the id doesn't exist
         """
-       
+        self.cursor.execute(f"SELECT state FROM {Database.table_name} WHERE id = {id}")
 
     
     def remove(self, id : int) -> bool:
