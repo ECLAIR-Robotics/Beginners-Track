@@ -8,28 +8,34 @@ class RelayContainer:
         #the goal of this is to have the user access particular Relay and alter it via the array
         self.relay_container = []
     
-    #lopp through our array and call Relay.toString() 
-    #TODO Implement this method
+    
+    #implement helper method that returns size
+    def get_size(self) -> int:
+        return self.relay_container.len()
+
+    #loop through our array and call Relay.toString() 
     def str(self):
         for x in self.relay_container:
-            x.toString()
+            x.to_string()
             print("\n")
     
     #user is asking to create a new relay object with given id and boolean state
-    def addRelay(self, input_id, input_state):
+    def add_relay(self, input_id, input_state):
         #check to see if the value already exists!
+        if (input_id > 27 or input_id < 0):
+            return
         for x in self.relay_container:
-            if (x.getID() == input_id):
-                x.setState(input_state)
+            if (x.get_id() == input_id):
+                x.set_state(input_state)
         self.relay_container.append(Relay(input_id, input_state))
 
     #intialize all of our Relays to LOW
-    def intializeLow(self):
+    def intialize_low(self):
         for x in self.relay_container:
-            x.setState(False)
+            x.set_state(False)
 
     #this will return whatever relay is in relay_container[idx]
-    def getRelayIndex(self, idx) -> Relay:
+    def get_relay_index(self, idx) -> Relay:
         #check if it's out of range
         if(idx >= len(self.relay_container) or idx < 0):
             #we we don't want a array index out of bounds error, user gets nothing!
@@ -37,16 +43,16 @@ class RelayContainer:
         return self.relay_container[idx]
 
     #gets relay given a specified relay id, not the same as array index!
-    def getRelay(self, relay_id) -> Relay:
+    def get_relay(self, relay_id) -> Relay:
         for x in self.relay_container:
-            if(x.getID() == relay_id):
+            if(x.get_id() == relay_id):
                 return x
 
         return None
 
     #remove a relay from the array
-    def removeRelay(self, relay_id):
+    def remove_relay(self, relay_id):
         #turn off GPIO pin when removing
-        offRelay = (self.getRelay(relay_id))
-        offRelay.setState(False)
+        offRelay = (self.get_relay(relay_id))
+        offRelay.set_state(False)
         self.relay_container.remove(offRelay)
