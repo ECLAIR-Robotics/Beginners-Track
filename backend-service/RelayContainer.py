@@ -49,4 +49,7 @@ class RelayContainer:
             if relay.getID() == id:
                 relay.setState(state)
                 return True
-        
+
+if (__name__ == "__main__"):
+    r = Relay()
+    r.setState(True)

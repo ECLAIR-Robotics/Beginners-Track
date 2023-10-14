@@ -1,21 +1,24 @@
 import React from 'react';
 import logo from './logo.svg';
+import {useState, useEffect} from 'react';
 import './App.css';
 
 function App() {
+  const [data, setData] = useState({message: ""})
+  const [clicked, setClicked] = useState(false);
+  useEffect(() => { 
+    fetch(`http://10.159.65.135:5000/`)
+      .then(res => res.json())
+      .then(data => setData(data))
+  }, []);
+  useEffect(() => {
+    console.log(data)
+  }, [data]);
 
-  // const [data, setData] = React.useState([{text: '', id: 0, user: ''}]);
-
-  // React.useEffect(() => {
-  //   console.log('useEffect called');
-  //   fetch('http://localhost:5000').then(response => {
-  //     response.json().then((data) => { 
-  //       console.log(data);
-  //       setData(data)
-  //     })
-  //   })
-  // }, []);
-
+  const handleClick = () => { 
+    setClicked(!clicked);
+    console.log(clicked)
+  };
   // React.useEffect(() => {
   //   console.log(data)
   // }, [data]);
@@ -24,24 +27,11 @@ function App() {
   //   
   // );
 
-  // return (
-  //   <div className="App">
-  //     <header className="App-header">
-  //       <img src={logo} className="App-logo" alt="logo" />
-  //       <p>
-  //         Edit <code>src/App.tsx</code> and save to reload.
-  //       </p>
-  //       <a
-  //         className="App-link"
-  //         href="https://reactjs.org"
-  //         target="_blank"
-  //         rel="noopener noreferrer"
-  //       >
-  //         Learn React
-  //       </a>
-  //     </header>
-  //   </div>
-  // );
+  return (
+    <div className="App">
+      <button onClick={handleClick}>Click Me</button>
+    </div>
+  );
 }
 
 export default App;
