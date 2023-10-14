@@ -13,7 +13,7 @@ class Database:
         if result:
             print(f"{self.table_name} is online.")
         else:
-            self.cursor.execute(f"CREATE TABLE {Database.table_name} (id INTEGER PRIMARY KEY, state BOOL, name TEXT, description TEXT);") # Uncomment this line and fill out thing 
+            self.cursor.execute(f"CREATE TABLE {Database.table_name} (id INTEGER PRIMARY KEY, state BOOL, name TEXT, description TEXT);")  
             print(f"The table '{self.table_name}' is online and instantiated ")
         
     
