@@ -1,16 +1,16 @@
-from embedded import Relay
+from embedded.Relay import Relay
 
 class RelayContainer:
-    
+
     def __init__(self):
         self.container = []
         print("RelayContainer Initialized")
-        
+
     def str(self):
         print(f"Container Size: {len(self.relays)}")
         print("ID\tState")
         print("-------------------------")
-        
+
         for relay in self.relays:
             print(f"{relay.getID()}\t{relay.getRelayState()}")
 
@@ -20,14 +20,14 @@ class RelayContainer:
 
     def addRelay(self, int: id, state: bool) -> bool:
         return self.addRelay(Relay(id, state))
-    
+
     def initializeLow(self):
         for relay in self.relays:
             relay.setState(0)
 
     def getRelayIndex(self, index: int) -> Relay:
         return self.relays[index]
-    
+
     def getRelay(self, id: int) -> Relay:
         for relay in self.relays:
             if relay.getID() == id:
@@ -49,7 +49,4 @@ class RelayContainer:
             if relay.getID() == id:
                 relay.setState(state)
                 return True
-
-if (__name__ == "__main__"):
-    r = Relay()
-    r.setState(True)
+r

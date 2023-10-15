@@ -15,8 +15,7 @@ class Relay:
         if (state):
             GPIO.output(self.gpio_pin, GPIO.HIGH)
         else:
-            GPIO.output(self.gpio_pin, GPIO.LOW)
-        
+            GPIO.output(self.gpio_pin, GPIO.LOW) 
 
     def getID(self):
         return self.relay_pin
