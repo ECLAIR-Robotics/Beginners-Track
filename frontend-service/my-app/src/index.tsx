@@ -12,7 +12,8 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <TestButton/> {/*remove this and import when you are done using it*/ }
+     {/* <TestButton title = {"Cool Button"} statingValue= {5}/>remove this and import when you are done using it*/ }
+     {/* <TestButton title = {"Bad Button"} statingValue= {25}/>remove this and import when you are done using it*/ }
     <ButtonGrid id={1}/>
     <ButtonGrid id={2}/>
     <ButtonGrid id={3}/>

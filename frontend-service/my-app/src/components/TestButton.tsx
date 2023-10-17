@@ -2,7 +2,11 @@
 import './ButtonGrid.css'; 
 import { useState } from 'react'; // useState is a React hook (just think of it as a function that returns an array with 2 elements)
 
-function TestButton() {
+interface Props{
+  title: String,
+  statingValue: number
+}
+function TestButton({title, statingValue}: Props) {
     const [changingNumberVar, changeNumFunction] = useState(0); // changingNumberVar is the variable that will change when clicking the button (set to 0)
                                                                 // changeNumFunction is the function that will be called to change changingNumberVar
 
@@ -13,7 +17,7 @@ function TestButton() {
     
   return (
     <div>
-      <button onClick={someFunction}> uselessButton: {changingNumberVar} </button> {/*This creates the button and sets it with an EVENT called onClick*/}
+      <button onClick={someFunction}> {title}: {changingNumberVar + statingValue} </button> {/*This creates the button and sets it with an EVENT called onClick*/}
       {/*Events in react are usually ways the user interacts with a website. Link of common events will be posted when I find one*/}
     </div>
 
