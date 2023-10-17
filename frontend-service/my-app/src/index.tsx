@@ -1,15 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import Footer from './components/Footer'; 
+import ButtonGrid from './components/ButtonGrid';
 import reportWebVitals from './reportWebVitals';
+import TestButton from './components/TestButton';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
 root.render(
   <React.StrictMode>
-    <App />
+     {/* <TestButton title = {"Cool Button"} statingValue= {5}/>remove this and import when you are done using it*/ }
+     {/* <TestButton title = {"Bad Button"} statingValue= {25}/>remove this and import when you are done using it*/ }
+    <ButtonGrid id={1}/>
+    <ButtonGrid id={2}/>
+    <ButtonGrid id={3}/>
+    <Footer/> 
+    
   </React.StrictMode>
 );
 

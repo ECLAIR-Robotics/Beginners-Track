@@ -1,0 +1,35 @@
+/* .Footer{
+    position: relative;
+    top: 34rem;
+    align-items: center;
+    left: 43%;
+} */
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+  
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+  
+.footer-logo img {
+    height: 40px;
+    width: auto;
+}
+  
+.footer-info p {
+    margin: 5px 0;
+}
+  
+  
