@@ -23,6 +23,7 @@ class Database:
             :return True if a device entity with the 'id' exists
         """
         self.cursor.execute(f"SELECT id FROM {Database.table_name} WHERE id={id}")
+        result = self.cursor.fetchone()
         
 
     def add(self, id : int, state : bool):
