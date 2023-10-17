@@ -57,3 +57,12 @@ class RelayContainerTestCase(unittest.TestCase):
         self.con.remove_relay(1)
         self.assertLess(self.con.get_size(), prev_size, "remove_relay FAILED: failure to remove relay")
         self.assertIsNone(self.con.get_relay(1), "remove_relay FAILED: failure to remove relay")
+    
+    def test_intialize_low(self):
+        for i in range(10):
+            self.con.add_relay(i, True if (i%2 == 0) else False)
+        
+        self.con.intialize_low()
+
+        for i in range(10):
+            self.assertFalse(self.con.get_relay(i).get_relay_state, "intialize_low FAILED: failure to set relay state to False")
