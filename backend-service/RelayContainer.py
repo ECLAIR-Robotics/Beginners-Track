@@ -3,7 +3,7 @@ from embedded.Relay import Relay
 class RelayContainer:
 
     def __init__(self):
-        self.container = []
+        self.relays = []
         print("RelayContainer Initialized")
 
     def str(self):
