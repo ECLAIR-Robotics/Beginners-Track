@@ -49,4 +49,3 @@ class RelayContainer:
             if relay.getID() == id:
                 relay.setState(state)
                 return True
-r

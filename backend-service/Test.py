@@ -1,5 +1,5 @@
 from embedded.Relay import Relay
-from RelayContainer import RelayContainer
+import RelayContainer
 
 if (__name__ == "__main__"):
     r = Relay()
