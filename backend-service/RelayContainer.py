@@ -14,7 +14,7 @@ class RelayContainer:
         for relay in self.relays:
             print(f"{relay.getID()}\t{relay.getRelayState()}")
 
-    def addRelay(self, relay: Relay) -> bool:
+    def addCreatedRelay(self, relay: Relay) -> bool:
         self.relays.append(relay)
         return True
 

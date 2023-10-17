@@ -11,7 +11,7 @@ if (__name__ == "__main__"):
 
     rc = RelayContainer.RelayContainer()
 
-    rc.addRelay(r)
+    rc.addCreatedRelay(r)
     rc.addRelay(1, True)
     rc.str()
 
