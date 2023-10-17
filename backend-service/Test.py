@@ -9,7 +9,7 @@ if (__name__ == "__main__"):
     r.setState(False)
     print(r.getRelayState())
 
-    rc = RelayContainer()
+    rc = RelayContainer.RelayContainer()
 
     rc.addRelay(r)
     rc.addRelay(1, True)
