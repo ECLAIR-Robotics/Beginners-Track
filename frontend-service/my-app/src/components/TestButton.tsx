@@ -7,11 +7,15 @@ interface Props{
   statingValue: number
 }
 function TestButton({title, statingValue}: Props) {
+
+  
     const [changingNumberVar, changeNumFunction] = useState(0); // changingNumberVar is the variable that will change when clicking the button (set to 0)
                                                                 // changeNumFunction is the function that will be called to change changingNumberVar
 
     const someFunction = () => {
-        console.log('OMG they clicked the button'); // Call whatever you want, but the next line actually changes the var
+        console.log('OMG they clicked the button' + changingNumberVar); // Call whatever you want, but the next line actually changes the var
+
+
         changeNumFunction(changingNumberVar + 1); // Updates the state 
     };
     
