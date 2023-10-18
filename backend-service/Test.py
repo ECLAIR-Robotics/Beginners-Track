@@ -12,9 +12,9 @@ if (__name__ == "__main__"):
     rc = RelayContainer.RelayContainer()
 
     rc.addCreatedRelay(r)
-    rc.addRelay(20, True)
+    rc.addRelay(27, True)
     rc.str()
 
     print(rc.getRelayIndex(0).getID())
-    print(rc.getRelay(1).getID())
+    print(rc.getRelay(17).getID())
     print(rc.getAllRelays())
