@@ -1,10 +1,11 @@
 from embedded.Relay import Relay
+from db.model import Model
 
 
 class RelayContainer:
 
     def __init__(self):
-        self.relays = []
+        self.relays = Model.getAllRelays()
         print("RelayContainer Initialized")
 
     def str(self):
@@ -17,9 +18,11 @@ class RelayContainer:
 
     def addCreatedRelay(self, relay: Relay) -> bool:
         self.relays.append(relay)
+        Model.addRelay(relay.getID(), relay.getRelayState())
         return True
 
     def addRelay(self, int: id, state: bool) -> bool:
+        Model.addRelay(id, state)
         return self.addCreatedRelay(Relay(id, state))
 
     def initializeLow(self):
