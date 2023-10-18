@@ -1,22 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import Footer from './components/Footer'; 
+import Footer from './components/Footer';
+import App from './App';
+import ANA from './components/AddNewAppliances';
 import ButtonGrid from './components/ButtonGrid';
 import reportWebVitals from './reportWebVitals';
 import TestButton from './components/TestButton'; 
+
+import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
 root.render(
-  <React.StrictMode>
-    <TestButton/> {/*remove this and import when you are done using it*/ }
-    <ButtonGrid />
-    <Footer/> 
-    
-  </React.StrictMode>
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+
+  // <React.StrictMode>
+  //   <ANA />
+  // </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

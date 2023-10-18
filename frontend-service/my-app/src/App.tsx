@@ -1,7 +1,11 @@
+import { Routes, Route } from "react-router-dom"
+import ANA from './components/AddNewAppliances';
+import ButtonGrid from './components/ButtonGrid';
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import 'components/Footer.tsx';
+import './components/Footer';
+import { Link } from 'react-router-dom';
 
 
 function App() {
@@ -19,7 +23,12 @@ function App() {
         >
         </a>
       </header>
-      <button>test</button>
+      <Routes>
+        <Route path="Grid" element={ <ButtonGrid/> } />
+        <Route path="ANA" element={ <ANA/> } />
+      </Routes>
+      <Link to="Grid">Click to view the Grid page</Link>
+      <Link to="ANA">Click to view the ANA page</Link>
     </div>
   );
 } 
