@@ -4,8 +4,8 @@ from db.model import Model
 
 class RelayContainer:
 
-    def __init__(self):
-        m = Model("database.db")
+    def __init__(self, m: Model):
+        self.m = Model("database.db")
         self.relays = m.getAllRelays()
         print("RelayContainer Initialized")
 
@@ -19,11 +19,11 @@ class RelayContainer:
 
     def addCreatedRelay(self, relay: Relay) -> bool:
         self.relays.append(relay)
-        Model.addRelay(relay.getID(), relay.getRelayState())
+        self.m.addRelay(relay.getID(), relay.getRelayState())
         return True
 
     def addRelay(self, int: id, state: bool) -> bool:
-        Model.addRelay(id, state)
+        self.m.addRelay(id, state)
         return self.addCreatedRelay(Relay(id, state))
 
     def initializeLow(self):
