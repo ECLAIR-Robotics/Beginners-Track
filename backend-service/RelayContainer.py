@@ -1,5 +1,6 @@
 from embedded.Relay import Relay
 
+
 class RelayContainer:
 
     def __init__(self):
@@ -19,7 +20,7 @@ class RelayContainer:
         return True
 
     def addRelay(self, int: id, state: bool) -> bool:
-        return self.addRelay(Relay(id, state))
+        return self.addCreatedRelay(Relay(id, state))
 
     def initializeLow(self):
         for relay in self.relays:
