@@ -2,7 +2,7 @@ from embedded.Relay import Relay
 import RelayContainer
 
 if (__name__ == "__main__"):
-    r = Relay(1, False)
+    r = Relay(17, False)
     r.setState(True)
     print(r.getRelayState())
 
@@ -12,7 +12,7 @@ if (__name__ == "__main__"):
     rc = RelayContainer.RelayContainer()
 
     rc.addCreatedRelay(r)
-    rc.addRelay(1, True)
+    rc.addRelay(20, True)
     rc.str()
 
     print(rc.getRelayIndex(0).getID())
