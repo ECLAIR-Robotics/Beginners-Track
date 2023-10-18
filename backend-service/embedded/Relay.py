@@ -4,7 +4,7 @@ import time
 
 class Relay:
 
-    def __init__(self, relay_id, gpio_pin):
+    def __init__(self, relay_id: int, gpio_pin: bool):
         self.relay_id = relay_id
         self.gpio_pin = gpio_pin
         GPIO.setmode(GPIO.BCM)
