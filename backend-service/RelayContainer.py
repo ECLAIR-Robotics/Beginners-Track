@@ -5,7 +5,7 @@ from db.model import Model
 class RelayContainer:
 
     def __init__(self):
-        self.relays = Model.getAllRelays()
+        self.relays = Model.getAllRelays(self)
         print("RelayContainer Initialized")
 
     def str(self):
