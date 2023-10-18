@@ -6,7 +6,7 @@ class RelayContainer:
 
     def __init__(self):
         m = Model("database.db")
-        self.relays = m.getAllRelays()
+        self.relays = m.getAllRelays(self)
         print("RelayContainer Initialized")
 
     def str(self):
