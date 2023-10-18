@@ -6,7 +6,7 @@ class Model:
     def __init__(self, database_name) -> None:
         self.connection = sqlite3.connect(database_name)
         self.cursor = self.connection.cursor()
-        self.cursor.execute("CREATE TABLE relays(relayID, relayState)")
+        self.cursor.execute("CREATE TABLE IF NOT EXISTS relays(relayID, relayState)")
 
     def checkIfRelayExists(self, id: int):
         self.cursor.execute("SELECT relayID FROM relays WHERE relayID=?", (id))
