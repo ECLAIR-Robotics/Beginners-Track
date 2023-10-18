@@ -1,3 +1,5 @@
+#    MAKE SURE TO RUN 'npm audit fix'
+
 # Beginners-Track
 ## Repository for the beginner's track. **Make your own branch for this repo and name it `team/<teamname>`** before your sub-team starts working
 
