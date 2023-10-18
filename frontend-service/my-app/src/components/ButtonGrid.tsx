@@ -23,10 +23,12 @@ function ButtonGrid(props : Props) {
 
   return (
     <div className='Grid-Container'>
-            
-        <div className="row">
-            <h2 id="b1">Light #{props.id}: {state}</h2>
+            <div className="row">
+            <h2 id="b1"> {state}</h2>
         </div>
+        {/* <div className="row">
+            <h2 id="b1">Light #{props.id}: {state}</h2>
+        </div> */}
 
         <div className="row">
             <div className ="col"><button onClick = {toggleOn} className="on">On</button></div>
