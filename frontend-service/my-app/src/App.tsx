@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom"
 import ANA from './components/AddNewAppliances';
 import ButtonGrid from './components/ButtonGrid';
+import MainPage from './components/MainPage';
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
@@ -24,7 +25,7 @@ function App() {
         </a>
       </header>
       <Routes>
-        <Route path="Grid" element={ <ButtonGrid/> } />
+        <Route path="Grid" element={ <MainPage/> } />
         <Route path="ANA" element={ <ANA/> } />
       </Routes>
       <Link to="Grid">Click to view the Grid page</Link>

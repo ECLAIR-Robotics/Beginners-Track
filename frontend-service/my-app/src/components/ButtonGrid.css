@@ -1,7 +1,3 @@
-body {
-    background-color: #ffe1bc;
-}
-  
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
       monospace;
@@ -18,7 +14,6 @@ code {
     align-items: center;
     height: 10rem;
     position: relative;
-    top: 20rem;
 }
 
 .row {

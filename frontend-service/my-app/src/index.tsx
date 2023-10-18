@@ -6,7 +6,8 @@ import App from './App';
 import ANA from './components/AddNewAppliances';
 import ButtonGrid from './components/ButtonGrid';
 import reportWebVitals from './reportWebVitals';
-import TestButton from './components/TestButton'; 
+import TestButton from './components/TestButton';
+import BaseCard from './components/BaseCard';
 
 import { BrowserRouter } from "react-router-dom";
 
@@ -18,10 +19,6 @@ root.render(
   <BrowserRouter>
     <App />
   </BrowserRouter>
-
-  // <React.StrictMode>
-  //   <ANA />
-  // </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
