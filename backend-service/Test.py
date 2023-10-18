@@ -4,7 +4,7 @@ import RelayContainer
 if (__name__ == "__main__"):
     r = Relay(17, False)
     r.setState(True)
-    print("#1: " + r.getRelayState())
+    print("#1: ", r.getRelayState())
 
     r.setState(False)
     print(r.getRelayState())
@@ -13,8 +13,8 @@ if (__name__ == "__main__"):
 
     rc.addCreatedRelay(r)
     rc.addRelay(27, True)
-    print("#2: " + rc.str())
+    print("#2: ", rc.str())
 
-    print("#3 " + rc.getRelayIndex(0).getID())
-    print("4 " + rc.getRelay(17).getID())
-    print("5 " + rc.getAllRelays())
+    print("#3 ", rc.getRelayIndex(0).getID())
+    print("4 ", rc.getRelay(17).getID())
+    print("5 ", rc.getAllRelays())
