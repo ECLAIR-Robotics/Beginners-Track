@@ -1,9 +1,13 @@
 import React from 'react';
 import logo from './logo.svg';
 import './ButtonGrid.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function ANA() {
+  const nav = useNavigate()
+    const changePage = () => {
+      nav('/')
+    }
     return (
       <div>
           <header>
@@ -13,6 +17,8 @@ function ANA() {
           <div className='Add Appliances'>
             <input className="appliance-input" type="text" placeholder="Enter New Appliance" />
           </div> 
+        <button onClick={changePage}>Go to Main Page</button>
+
       </div>
     );
   }

@@ -12,24 +12,14 @@ import { Link } from 'react-router-dom';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-        </a>
-      </header>
+      
       <Routes>
-        <Route path="Grid" element={ <MainPage/> } />
-        <Route path="ANA" element={ <ANA/> } />
+
+        <Route path="/" element={ <MainPage/> } />
+        <Route path="/ANA" element={ <ANA/> } />
       </Routes>
-      <Link to="Grid">Click to view the Grid page</Link>
-      <Link to="ANA">Click to view the ANA page</Link>
+      {/* <Link to="Grid">Click to view the Grid page</Link>
+      <Link to="ANA">Click to view the ANA page</Link> */}
     </div>
   );
 } 
