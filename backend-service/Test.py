@@ -2,8 +2,8 @@ from embedded.Relay import Relay
 import RelayContainer
 
 if (__name__ == "__main__"):
-    r = Relay(17, False)
-    r.setState(True)
+    r = Relay(17, True)
+    # r.setState(True)
     print("#1: ", r.getRelayState())
 
     r.setState(False)

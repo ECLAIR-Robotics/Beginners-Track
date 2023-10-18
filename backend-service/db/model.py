@@ -8,7 +8,7 @@ class Model:
         self.cursor = self.connection.cursor()
         self.cursor.execute("CREATE TABLE IF NOT EXISTS relays(relayID, relayState)")
 
-    def checkIfRelayExists(self, id: int):
+    def checkIfRelayExists(self, id: int) -> bool:
         self.cursor.execute("SELECT relayID FROM relays WHERE relayID=?", (id))
         return bool(self.cursor.fetchone())
     
