@@ -1,5 +1,8 @@
 from Relay import Relay
 
+GPIO_PIN_HIGHEST = 27
+GPIO_PIN_LOWEST = 0
+
 class RelayContainer:
     
     #create our container object
@@ -11,7 +14,7 @@ class RelayContainer:
     
     #implement helper method that returns size
     def get_size(self) -> int:
-        return self.relay_container.len()
+        return len(self.relay_container)
 
     #loop through our array and call Relay.toString() 
     def str(self):
@@ -22,12 +25,19 @@ class RelayContainer:
     #user is asking to create a new relay object with given id and boolean state
     def add_relay(self, input_id, input_state):
         #check to see if the value already exists!
-        if (input_id > 27 or input_id < 0):
+        if (input_id > GPIO_PIN_HIGHEST or input_id < GPIO_PIN_LOWEST):
             return
         for x in self.relay_container:
             if (x.get_id() == input_id):
                 x.set_state(input_state)
+                return
         self.relay_container.append(Relay(input_id, input_state))
+
+    def set_relay(self, input_id, input_state):
+        r = self.get_relay(input_id)
+        if (r != None):
+            r.set_state(input_state)
+
 
     #intialize all of our Relays to LOW
     def intialize_low(self):
@@ -44,15 +54,21 @@ class RelayContainer:
 
     #gets relay given a specified relay id, not the same as array index!
     def get_relay(self, relay_id) -> Relay:
+        #check if relay_id is out of bounds!
+        if (relay_id > GPIO_PIN_HIGHEST or relay_id < GPIO_PIN_LOWEST):
+            return None
+
         for x in self.relay_container:
             if(x.get_id() == relay_id):
                 return x
-
+        #relay doesn't exit yet....
         return None
 
     #remove a relay from the array
     def remove_relay(self, relay_id):
         #turn off GPIO pin when removing
         offRelay = (self.get_relay(relay_id))
-        offRelay.set_state(False)
-        self.relay_container.remove(offRelay)
+
+        if (offRelay != None):
+            offRelay.set_state(False)
+            self.relay_container.remove(offRelay)

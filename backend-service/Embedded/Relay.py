@@ -21,12 +21,12 @@ class Relay:
         #set GPIO pin as output pin
         GPIO.setup(self.pin_id, GPIO.OUT)
         #set the GPIO state to either high or low
-        GPIO.output(self.pin_id, GPIO.HIGH if self.state else GPIO.LOW)
+        GPIO.output(self.pin_id, GPIO.LOW if self.state else GPIO.HIGH)
 
     #switches the state of the pin to its opposite
     def set_state(self, input_state):
         self.state = input_state
-        GPIO.output(self.pin_id, GPIO.HIGH if self.state else GPIO.LOW)
+        GPIO.output(self.pin_id, GPIO.LOW if self.state else GPIO.HIGH)
     
     #can you read RelayContainer.py???
     #gets the pin id
