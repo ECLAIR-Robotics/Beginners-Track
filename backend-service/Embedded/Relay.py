@@ -1,4 +1,4 @@
-#make our imports here
+#make our imports here (embed)
 try:
     import RPi.GPIO as GPIO
 except RuntimeError:
@@ -15,8 +15,8 @@ class Relay:
         GPIO.setmode(GPIO.BCM)
         GPIO.setwarnings(False)
 
-        self.pin_id = id
-        self.state = input_state
+        self.pin_id = id            # Remember: Each pin on the Rasberry pi corresponds with an electronic (every pin is an id for the row)
+        self.state = input_state    # To that extent, we want to see if it is on or not
 
         #set GPIO pin as output pin
         GPIO.setup(self.pin_id, GPIO.OUT)

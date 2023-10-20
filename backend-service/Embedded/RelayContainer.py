@@ -1,4 +1,5 @@
 from Relay import Relay
+from core.sqlite3.database import db # With this statement we can grab the database class we made and then use it here
 
 class RelayContainer:
     
@@ -22,6 +23,8 @@ class RelayContainer:
             if (x.getID() == input_id):
                 x.setState(input_state)
         self.relay_container.append(Relay(input_id, input_state))
+        # Now, to see if it is connected to the database, we need to check if it is already there!
+        #TODO
 
     #intialize all of our Relays to LOW
     def intializeLow(self):
