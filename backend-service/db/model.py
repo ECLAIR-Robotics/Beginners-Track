@@ -18,7 +18,7 @@ class Model:
         ret = self.cursor.fetchone()
         return bool(ret)
 
-    def addRelay(id: int, state: bool, self):
+    def addRelay(self, id: int, state: bool):
         if self.checkIfRelayExists(id):
             raise ValueError("Relay exists")
         self.cursor.execute(
