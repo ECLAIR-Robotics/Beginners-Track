@@ -3,6 +3,9 @@ import RelayContainer
 
 if (__name__ == "__main__"):
     rc = RelayContainer.RelayContainer()
+    rc.popRelay(17)
+    rc.popRelay(27)
+    '''
     print(rc.getAllRelays())
 
     r = Relay(17, False)
@@ -23,8 +26,9 @@ if (__name__ == "__main__"):
     print("#6 ", rc.getRelay(17).getID())
     print("#7 ", rc.getAllRelays())
 
-    rc.popRelay(0)
+    rc.popRelay(17)
     print("#8: ", rc.str())
 
-    rc.popRelay(0)
+    rc.popRelay(27)
     print("#9: ", rc.str())
+    '''
