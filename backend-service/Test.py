@@ -2,12 +2,12 @@ from embedded.Relay import Relay
 import RelayContainer
 
 if (__name__ == "__main__"):
-    r = Relay(17, True)
+    r = Relay(17, False)
     r.setState(True)
-    print("#1: ", r.getRelayState()) # should be true
+    print("#1: ", r.getRelayState())  # should be true
 
     r.setState(False)
-    print("#2:", r.getRelayState()) # should be false
+    print("#2:", r.getRelayState())  # should be false
 
     rc = RelayContainer.RelayContainer()
     rc.add(r)
