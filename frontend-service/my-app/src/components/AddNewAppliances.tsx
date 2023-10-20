@@ -17,7 +17,7 @@ function ANA() {
           <div className='Add Appliances'>
             <input className="appliance-input" type="text" placeholder="Enter New Appliance" />
           </div> 
-        <button onClick={changePage}>Go to Main Page</button>
+        <button className='bg-rose-300' onClick={changePage}>Go to Main Page</button>
 
       </div>
     );

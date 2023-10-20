@@ -21,12 +21,12 @@ function MainPage() {
         {/* <ButtonGrid id={1}/>
         <ButtonGrid id={2}/>
         <ButtonGrid id={3}/> */}
-        <h1 className="text-3xl font-bold underline">The thing is long </h1>
+        <h1 className="text-3xl font-bold underline text-green-600 ">The thing is long </h1>
         <BaseCard Name = {"Light1"} Text = {"Light1"} ID = {1}/>
         <Footer/> 
         <div>
         <Link to="/ANA" onClick={changePage}>Click to view the ANA page</Link> 
-        <button onClick={changePage}>Go to ANA</button>
+        <button onClick={changePage} className='hover:text-green-900 transition-all'>Go to ANA</button>
         </div>
     </div>
 
