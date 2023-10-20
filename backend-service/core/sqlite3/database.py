@@ -23,11 +23,15 @@ class Database:
             :return True if a device entity with the 'id' exists
         """
         self.cursor.execute(f"SELECT id FROM {Database.table_name} WHERE id={id}")
+        if(self.cursor.fetchone()): 
+            return True
+        return False
         
 
     def add(self, id : int, state : bool, name, description):
         self.cursor.execute(f"insert into {Database.table_name} (id,state,name,description) values({id},{state}, {name}, {description})")
         print("Umer is the best boss")
+        self.con.commit()
         """
         Adds a device entity into the database
 

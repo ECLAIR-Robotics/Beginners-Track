@@ -1,5 +1,5 @@
 from Relay import Relay
-from core.sqlite3.database import db # With this statement we can grab the database class we made and then use it here
+from core.sqlite3.database import Database # With this statement we can grab the database class we made and then use it here
 
 class RelayContainer:
     
@@ -8,6 +8,7 @@ class RelayContainer:
         #our container is an array which will store the Relay objects
         #the goal of this is to have the user access particular Relay and alter it via the array
         self.relay_container = []
+        self.db = Database()
     
     #lopp through our array and call Relay.toString() 
     #TODO Implement this method
@@ -17,7 +18,7 @@ class RelayContainer:
             print("\n")
     
     #user is asking to create a new relay object with given id and boolean state
-    def addRelay(self, input_id, input_state):
+    def addRelay(self, input_id, input_state, name, disctiption):
         #check to see if the value already exists!
         for x in self.relay_container:
             if (x.getID() == input_id):
@@ -25,6 +26,7 @@ class RelayContainer:
         self.relay_container.append(Relay(input_id, input_state))
         # Now, to see if it is connected to the database, we need to check if it is already there!
         #TODO
+        self.db.add(input_id, input_state, name, disctiption)
 
     #intialize all of our Relays to LOW
     def intializeLow(self):
