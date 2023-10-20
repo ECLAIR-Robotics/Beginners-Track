@@ -13,7 +13,6 @@ class Relay:
 
     def setState(self, state: bool):
         self.state = state
-        print(self.state)
         if (state):
             GPIO.output(self.relay_id, GPIO.HIGH)
         else:
