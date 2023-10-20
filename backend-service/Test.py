@@ -2,6 +2,9 @@ from embedded.Relay import Relay
 import RelayContainer
 
 if (__name__ == "__main__"):
+    rc = RelayContainer.RelayContainer()
+    print(rc.getAllRelays())
+
     r = Relay(17, False)
     r.setState(True)
     print("#1: ", r.getRelayState())  # should be true
