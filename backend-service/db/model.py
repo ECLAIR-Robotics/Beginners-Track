@@ -15,7 +15,8 @@ class Model:
     def checkIfRelayExists(self, id: int) -> bool:
         self.cursor.execute(
             f"SELECT relayID FROM {Model.TABLE_NAME} WHERE relayID='{id}'")
-        return bool(self.cursor.fetchone())
+        ret = self.cursor.fetchone()
+        return bool(ret)
 
     def addRelay(id: int, state: bool, self):
         if self.checkIfRelayExists(id):
@@ -29,7 +30,7 @@ class Model:
             raise ValueError("Relay does not exist")
         self.cursor.execute(
             f"SELECT relayState FROM {Model.TABLE_NAME} WHERE relayID={id}")
-        return bool(self.cursor.fetchone())
+        return bool(self.cursor.fetchone()[0])
 
     def dropRelay(self, id: int):
         if not (self.checkIfRelayExists(id)):

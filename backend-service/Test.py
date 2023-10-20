@@ -4,10 +4,10 @@ import RelayContainer
 if (__name__ == "__main__"):
     r = Relay(17, True)
     r.setState(True)
-    print("#1: ", r.getRelayState())
+    print("#1: ", r.getRelayState()) # should be true
 
     r.setState(False)
-    print("#2:", r.getRelayState())
+    print("#2:", r.getRelayState()) # should be false
 
     rc = RelayContainer.RelayContainer()
     rc.add(r)
