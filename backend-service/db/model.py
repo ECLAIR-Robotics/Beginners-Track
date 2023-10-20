@@ -14,7 +14,7 @@ class Model:
 
     def checkIfRelayExists(self, id: int) -> bool:
         self.cursor.execute(
-            f"SELECT 1 FROM {Model.TABLE_NAME} WHERE relayID='{id}'")
+            f"SELECT 1 FROM {Model.TABLE_NAME} WHERE relayID='{id}';")
         ret = self.cursor.fetchone()
         return bool(ret)
 
