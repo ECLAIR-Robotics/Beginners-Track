@@ -19,3 +19,9 @@ if (__name__ == "__main__"):
     print("#5 ", rc.getRelayIndex(0).getID())
     print("#6 ", rc.getRelay(17).getID())
     print("#7 ", rc.getAllRelays())
+
+    rc.popRelay(0)
+    print("#8: ", rc.str())
+
+    rc.popRelay(0)
+    print("#9: ", rc.str())
