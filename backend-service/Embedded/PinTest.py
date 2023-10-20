@@ -21,5 +21,24 @@ class PinTestCase(unittest.TestCase):
         time.sleep(1)
         self.con.set_relay(22, True)
 
+    def test_show_binary_sequence(self):
+        for i in range(16):
+            self.binary_sequence(i)
+            time.sleep(1)
+
+    #represent a 4 digit binary number using LEDS
+    def binary_sequence(self, n):
+        self.con.set_relay(4, n & 1)
+        self.con.set_relay(17, n & 2)
+        self.con.set_relay(27, n & 4)
+        self.con.set_relay(22, n & 8)
+    
+
+    def tearDown(self):
+        self.con.remove_relay(4)
+        self.con.remove_relay(17)
+        self.con.remove_relay(27)
+        self.con.remove_relay(22)
+
 
 
