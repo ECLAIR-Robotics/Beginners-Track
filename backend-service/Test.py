@@ -3,7 +3,8 @@ import RelayContainer
 
 if (__name__ == "__main__"):
     rc = RelayContainer.RelayContainer()
-    print(rc.str())
+    rc.popRelay(0)
+    rc.popRelay(1)
 '''
     print(rc.getAllRelays())
 
