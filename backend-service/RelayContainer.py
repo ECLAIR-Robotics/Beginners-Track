@@ -18,20 +18,24 @@ class RelayContainer:
         for relay in self.relays:
             print(f"{relay.getID()}\t{relay.getRelayState()}")
 
-    #def addCreatedRelay(self, relay: Relay) -> bool:
+    # def addCreatedRelay(self, relay: Relay) -> bool:
     #    self.relays.append(relay)
     #    self.m.addRelay(relay.getID(), relay.getRelayState())
     #    return True
 
     def addRelay(self, id: int, state: bool) -> bool:
         self.relays.append(Relay(id, state))
-        self.m.addRelay(id, state)
-        return True
-    
+        if not self.m.checkIfRelayExists(id):
+            self.m.addRelay(id, state)
+            return True
+        return False
+
     def add(self, relay: Relay) -> bool:
         self.relays.append(relay)
-        self.m.addRelay(relay.getID(), relay.getRelayState())
-        return True
+        if not self.m.checkIfRelayExists(relay.getID()):
+            self.m.addRelay(relay.getID(), relay.getRelayState())
+            return True
+        return False
 
     def initializeLow(self):
         for relay in self.relays:
@@ -45,8 +49,11 @@ class RelayContainer:
         for relay in self.relays:
             if relay.getID() == id:
                 return relay
+        return None
 
     def popRelay(self, index: int) -> Relay:
+        if not (index < len(self.relays)):
+            raise ValueError("Index out of bounds")
         for relay in self.relays:
             if relay.getID() == index:
                 ret = relay
@@ -54,7 +61,7 @@ class RelayContainer:
                 self.relays.pop(index)
                 return ret
 
-    #def removeRelay(self, id: int) -> Relay:
+    # def removeRelay(self, id: int) -> Relay:
     #    for index, relay in enumerate(self.relays):
     #        if relay.getID() == id:
     #            return self.popRelay(index)
