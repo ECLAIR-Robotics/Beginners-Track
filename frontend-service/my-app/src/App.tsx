@@ -10,6 +10,9 @@ import TestButton from './components/TestButton'
 /*
 https://www.pluralsight.com/guides/how-to-use-the-map()-function-to-export-javascript-in-react?clickid=ztZzYd3-OxyPRO3XIcV5J3kyUkFToOWX0z5yUo0&irgwc=1&mpid=29332&aid=7010a000001xAKZAA2&utm_medium=digital_affiliate&utm_campaign=29332&utm_source=impactradius
 https://legacy.reactjs.org/docs/lists-and-keys.html
+
+get rid of all the test buttons --> have one map function and add a button for element in the array of relays
+for each button created --> need to be able to remove if necessary and rename
  */
 function App() {
   return (
