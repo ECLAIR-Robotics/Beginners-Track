@@ -3,7 +3,36 @@ import logo from './logo.svg';
 import TestImage from './static/Test.png'
 import './App.css';
 import './Maid (well, it IS a home automation system, and who takes care of homes).png'
+import '../styles/card.css';
+import TestButton from './components/TestButton'
 
+
+/*
+https://www.pluralsight.com/guides/how-to-use-the-map()-function-to-export-javascript-in-react?clickid=ztZzYd3-OxyPRO3XIcV5J3kyUkFToOWX0z5yUo0&irgwc=1&mpid=29332&aid=7010a000001xAKZAA2&utm_medium=digital_affiliate&utm_campaign=29332&utm_source=impactradius
+https://legacy.reactjs.org/docs/lists-and-keys.html
+ */
+function App() {
+  return (
+    <header>
+      <img src={logo} className="App-logo" alt="logo" />
+      <img src={TestImage} className="Funny" alt="Maid" />
+      <h2> *Hey, it's a HOME Automation System, and who takes care of homes? Maids, of course! </h2>
+      <h1> Home Automation System </h1>
+      <div className="flex-container">
+        <TestButton text="Light #1" />
+        <TestButton text="Light #2" />
+        <TestButton text="Light #3" />
+        <TestButton text="Fan #1" />
+        <TestButton text="Fan #2" />
+        <TestButton text="Fan #3" />
+      </div>
+    </header>
+  );
+}
+
+export default App;
+
+/*
 function App() {
   return (
     <div className="App">
@@ -27,3 +56,4 @@ function App() {
 }
 
 export default App;
+*/
