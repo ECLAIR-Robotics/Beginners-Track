@@ -16,7 +16,7 @@ function BaseCard({Name, Text, ID} : Props) {
         <h1 className = "Header">    
            {Name} 
         </h1>
-        <p className = "Description">
+        <p className = "text-bg_color">
             {Text}
         </p>
         <div className = "id">   
