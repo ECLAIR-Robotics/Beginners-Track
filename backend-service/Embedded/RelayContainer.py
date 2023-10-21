@@ -11,7 +11,7 @@ class RelayContainer:
         self.db = Database()
     
     #lopp through our array and call Relay.toString() 
-    #TODO Implement this method
+    #Implement this method
     def str(self):
         for x in self.relay_container:
             x.toString()
@@ -26,12 +26,16 @@ class RelayContainer:
         self.relay_container.append(Relay(input_id, input_state))
         # Now, to see if it is connected to the database, we need to check if it is already there!
         #TODO
+        if self.db.contains(input_id) :
+            return False
         self.db.add(input_id, input_state, name, disctiption)
+        return True
 
     #intialize all of our Relays to LOW
     def intializeLow(self):
         for x in self.relay_container:
             x.setState(False)
+            self.db.setState(x.getID(), False)
 
     #this will return whatever relay is in relay_container[idx]
     def getRelayIndex(self, idx) -> Relay:
@@ -55,3 +59,5 @@ class RelayContainer:
         offRelay = (self.getRelay(relay_id))
         offRelay.setState(False)
         self.relay_container.remove(offRelay)
+        if self.db.contains(offRelay):
+            self.db.remove(offRelay)
