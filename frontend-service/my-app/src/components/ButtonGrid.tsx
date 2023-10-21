@@ -31,7 +31,7 @@ function ButtonGrid(props : Props) {
         </div> */}
 
         <div className="row">
-            <div className ="hover:text-green-900"><button onClick = {toggleOn} className="on">On</button></div>
+            <div className ="col "><button onClick = {toggleOn} className="on">On</button></div>
             <div className ="col"><button onClick = {toggleOff} className="off">Off</button></div>
         </div>
 
