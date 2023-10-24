@@ -19,6 +19,7 @@ for each button created --> need to be able to remove if necessary (POST request
 what if client wants to add relay? how to get that input?
   - some button that sends a POST request to /relay/add
 
+see demo files for examples
 
 NOTES:
 to test if backend api is working, need to ssh in raspi: 
@@ -27,7 +28,7 @@ to test if backend api is working, need to ssh in raspi:
     cd Beginners-Track/backend-service
     python3 -m base
   then go back to your local terminal and run npm start in my-app
-  
+
   if backend api isn't working pls write down which requests you aren't able to fulfill and lmk
   if there's anything weird going on
     see api requests in backend-service/core/views.py
