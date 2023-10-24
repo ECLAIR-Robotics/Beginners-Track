@@ -57,11 +57,9 @@ class Database:
         Raises:
             ValueError: If a device with the id doesn't exist
         """
-
-        if self.contains(id):
-            self.cursor.execute(f"SELECT state FROM {Database.table_name} WHERE id = {id}")
-            return True
-        return False
+        if(not self.contains(id)):
+             raise ValueError(f"row with id {id} does not exist")
+        self.cursor.execute(f"SELECT state FROM {Database.table_name} WHERE id = {id}")
         return self.cursor.fetchone()
 
     
