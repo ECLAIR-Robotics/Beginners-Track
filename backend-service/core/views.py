@@ -6,3 +6,4 @@ from flask_cors import cross_origin
 @cross_origin()
 def index():
     return jsonify({"message": "Home Automation API is Running!"}), 200
+

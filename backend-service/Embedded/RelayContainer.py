@@ -12,7 +12,7 @@ class RelayContainer:
     
     #lopp through our array and call Relay.toString() 
     #Implement this method
-    def str(self):
+    def __str__(self):
         for x in self.relay_container:
             x.toString()
             print("\n")
