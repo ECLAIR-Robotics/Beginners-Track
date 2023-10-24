@@ -16,7 +16,7 @@ class Database:
             self.cursor.execute(f"CREATE TABLE {Database.table_name} (id INTEGER PRIMARY KEY, state BOOL, name TEXT, description TEXT);")  
             print(f"The table '{self.table_name}' is online and instantiated ")
         
-    
+
     def contains(self, id : int) -> bool:
         """
         Return
@@ -57,7 +57,11 @@ class Database:
         Raises:
             ValueError: If a device with the id doesn't exist
         """
-        self.cursor.execute(f"SELECT state FROM {Database.table_name} WHERE id = {id}")
+
+        if self.contains(id):
+            self.cursor.execute(f"SELECT state FROM {Database.table_name} WHERE id = {id}")
+            return True
+        return False
         return self.cursor.fetchone()
 
     
@@ -77,6 +81,7 @@ class Database:
         """
         if(self.contains(id)):
             self.cursor.execute(f"Delete from {Database.table_name} where id={id}")
+            self.con.commit()
             return True
         return False
     
@@ -93,9 +98,11 @@ class Database:
         Raises:
             ValueError: If a device with the id doesn't exist
         """
-        
+        if(not self.contains(id)):
+             raise ValueError(f"row with id {id} does not exist")
         self.cursor.execute(f"UPDATE {Database.table_name} SET state = {state} WHERE id = {id}")
         self.con.commit()
+        return True
     
     
     def getAllDevices(self) -> list:
