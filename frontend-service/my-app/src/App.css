@@ -1,3 +1,10 @@
+/* This is for the page decor only */
+
+body {
+  background-size: cover;
+  background-color: lightblue;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -73,12 +80,12 @@ h1 {
 }
 
 .button {
-    box-shadow: 0.5em 0.5em 0.25em #000000;
-    margin: 0.5em;
-    border-radius: 1em;
-    transition: all 0.1s ease-in-out;
-    transform: translateY(0em);
-    cursor: pointer;
+  box-shadow: 0.5em 0.5em 0.25em #000000;
+  margin: 0.5em;
+  border-radius: 1em;
+  transition: all 0.1s ease-in-out;
+  transform: translateY(0em);
+  cursor: pointer;
 }
 
 .button:active {

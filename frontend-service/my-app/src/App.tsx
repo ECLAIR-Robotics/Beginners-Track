@@ -2,8 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import TestImage from './static/Test.png'
 import './App.css';
-import './Maid (well, it IS a home automation system, and who takes care of homes).png'
-import '../styles/card.css';
+// import '../styles/card.css';
 import TestButton from './components/TestButton'
 import { useState, useEffect } from 'react';
 

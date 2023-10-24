@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-// import App from './App';
+import App from './App';
 // import TestButton from './components/TestButton'
 import reportWebVitals from './reportWebVitals';
 import Card from './components/Card'
@@ -11,7 +11,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <Card />
+    <App />
   </React.StrictMode>
 );
 
