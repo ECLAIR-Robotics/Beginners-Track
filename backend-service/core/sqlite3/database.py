@@ -128,3 +128,36 @@ class Database:
     '''
 
 
+'''
+    What is PRIMARY KEY and UNIQUE?
+    These are called "constraints". As the name implies, it creates a format that the column MUST follow. Common ones include:
+    NOT NULL, CHECK (conditional like name.length > 3), DEFAULT (value), FOREIGN KEY ((column_name) REFERENCES table(column_name))
+'''
+'''
+    Common SQL commands:
+    INSERT INTO table_name (column1, column2, ...) VALUES (value1, value2, ...) {Add rows}
+
+    SELECT column1, column2, ... FROM table_name WHERE conditional {Get columns when the row meets some conditional}
+
+    UPDATE table_name SET column1 = value1, column2 = value2, ... WHERE conditional {Sets colums to values when some row meets some conditional}
+
+    DELETE FROM table_name WHERE condition {Delete row from column when some row meets some conditional}
+
+    ALTER TABLE table_name ADD column_name datatype; {Adds column to existing table}
+    ALTER TABLE table_name DROP COLUMN column_name; {Deletes column to existing table}
+
+    DROP TABLE table_name {Deletes table}
+
+'''
+'''
+    When the function takes a bunch of parameters, you can use multi-line strings (like this one with the 3 quotation marks)
+    to seperate your paremeters in multiple lines for easy reading, such as the one below
+'''
+'''
+    cursor.execute("create table tableName (id INTEGER, name TEXT, isOn INTEGER)") ->
+    cursor.execute(\''' create table tableName (
+        id INTEGER, 
+        name TEXT, isOn INTEGER
+        )
+    \''') {You dont need \ it was just so I can put a multiline string in a multiline string}
+'''
