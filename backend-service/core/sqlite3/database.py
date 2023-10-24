@@ -58,6 +58,7 @@ class Database:
             ValueError: If a device with the id doesn't exist
         """
         self.cursor.execute(f"SELECT state FROM {Database.table_name} WHERE id = {id}")
+        return self.cursor.fetchone()
 
     
     def remove(self, id : int) -> bool:
@@ -94,6 +95,7 @@ class Database:
         """
         
         self.cursor.execute(f"UPDATE {Database.table_name} SET state = {state} WHERE id = {id}")
+        self.con.commit()
     
     
     def getAllDevices(self) -> list:
