@@ -1,20 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+// import App from './App';
+// import TestButton from './components/TestButton'
 import reportWebVitals from './reportWebVitals';
-import Thing from './Thing'
+import Card from './components/Card'
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    {/* <Thing /> */}
-    <App />
+    <Card />
   </React.StrictMode>
 );
 
+// change Card to App
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
