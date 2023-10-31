@@ -37,22 +37,23 @@
 
 
 // export default Footer;
+// flex items-center
 
 import React from 'react';
 import './Footer.css';
 import logo from './logo.png';
 
 
-function Footer() {
+function Footer() {  
   return (
-    <footer className="footer">
-      <div className="footer-content">
-        <div className="footer-logo">
-          <a href="https://www.example.com" className="button-link">
-          <img src={logo} alt="ECLAIR" />
+      <footer className="bg-slate-900 text-white fixed p-4 bottom-0 left-0 w-full">
+      <div className=" flex items-center">
+        <div className="basis-1/2">
+          <a href="https://eclairrobotics.web.app/" className="hover:scale-125">
+            <img src={logo} alt="ECLAIR" className="h-10 w-auto hover:scale-150"/>
           </a>
         </div>
-        <div className="footer-info">
+        <div className="basis-1/2">
         <a href="https://github.com/ECLAIR-Robotics">View ECLAIR's GitHub</a>
         </div>
       </div>
