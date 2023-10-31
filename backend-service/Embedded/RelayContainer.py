@@ -1,4 +1,5 @@
 from Relay import Relay
+from core.sqlite3.database import Database # With this statement we can grab the database class we made and then use it here
 
 GPIO_PIN_HIGHEST = 27
 GPIO_PIN_LOWEST = 0
@@ -10,20 +11,22 @@ class RelayContainer:
         #our container is an array which will store the Relay objects
         #the goal of this is to have the user access particular Relay and alter it via the array
         self.relay_container = []
-    
+        self.db = Database()
     
     #implement helper method that returns size
     def get_size(self) -> int:
         return len(self.relay_container)
 
     #loop through our array and call Relay.toString() 
-    def str(self):
+    #Implement this method
+    def __str__(self):
         for x in self.relay_container:
             x.to_string()
             print("\n")
     
     #user is asking to create a new relay object with given id and boolean state
-    def add_relay(self, input_id, input_state):
+
+    def addRelay(self, input_id, input_state, name, disctiption):
         #check to see if the value already exists!
         if (input_id > GPIO_PIN_HIGHEST or input_id < GPIO_PIN_LOWEST):
             return
@@ -32,6 +35,12 @@ class RelayContainer:
                 x.set_state(input_state)
                 return
         self.relay_container.append(Relay(input_id, input_state))
+        # Now, to see if it is connected to the database, we need to check if it is already there!
+        #TODO
+        if self.db.contains(input_id) :
+            return False
+        self.db.add(input_id, input_state, name, disctiption)
+        return True
 
     def set_relay(self, input_id, input_state):
         r = self.get_relay(input_id)
@@ -42,7 +51,8 @@ class RelayContainer:
     #intialize all of our Relays to LOW
     def intialize_low(self):
         for x in self.relay_container:
-            x.set_state(False)
+            x.setState(False)
+            self.db.setState(x.getID(), False)
 
     #this will return whatever relay is in relay_container[idx]
     def get_relay_index(self, idx) -> Relay:
@@ -67,8 +77,9 @@ class RelayContainer:
     #remove a relay from the array
     def remove_relay(self, relay_id):
         #turn off GPIO pin when removing
-        offRelay = (self.get_relay(relay_id))
-
+        offRelay = (self.getRelay(relay_id))
         if (offRelay != None):
-            offRelay.set_state(False)
-            self.relay_container.remove(offRelay)
+          offRelay.setState(False)
+          self.relay_container.remove(offRelay)
+          if self.db.contains(offRelay):
+              self.db.remove(offRelay)
