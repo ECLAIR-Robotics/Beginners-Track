@@ -32,7 +32,7 @@ def relayOff():
 def addRelay():
     con = RelayContainer.RelayContainer()
     con.addRelay(1, True)
-    return jsonify({"Relay added."})
+    return jsonify([{"message": "Relay added."}]), 200
 
 
 @app.route("/relay/delete", methods=["POST"])

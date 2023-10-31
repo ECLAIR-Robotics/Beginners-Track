@@ -28,15 +28,40 @@ to test if backend api is working, need to ssh in raspi:
     python3 -m base
   then go back to your local terminal and run npm start in my-app
 
-  if backend api isn't working pls write down which requests you aren't able to fulfill and lmk
-  if there's anything weird going on
     see api requests in backend-service/core/views.py
   
  */
+
+const ids = [
+  "Relay 4",
+  "Relay 17",
+  "Relay 22",
+  "Relay 27"
+]
+
 function App() {
+
+  const [data, setData] = useState({ message: "" })
+  const [clicked, setClicked] = useState(false);
+
+  useEffect(() => {
+    fetch('http://10.159.65.74:5000/relay/add')
+      .then(res => res.json())
+      .then(data => setData(data))
+  }, []);
+  useEffect(() => {
+    console.log(data)
+  }, [data]);
+
+  const handleClick = () => {
+    setClicked(!clicked);
+    console.log(clicked)
+  };
+
+
   return (
     <header>
-      <img src={logo} className="App-logo" alt="logo" />
+      {/* <img src={logo} className="App-logo" alt="logo" />
       <img src={TestImage} className="Funny" alt="Maid" />
       <h2> *Hey, it's a HOME Automation System, and who takes care of homes? Maids, of course! </h2>
       <h1> Home Automation System </h1>
@@ -47,6 +72,9 @@ function App() {
         <TestButton text="Fan #1" />
         <TestButton text="Fan #2" />
         <TestButton text="Fan #3" />
+      </div> */}
+      <div className="App">
+        <button onClick={handleClick}>Add Relay</button>
       </div>
     </header>
   );

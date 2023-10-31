@@ -3,13 +3,12 @@ import logo from '.logo.svg';
 import '../App.css';
 import '../styles/testbutton.css'
 
-interface TestButtonProps {
+interface ButtonProps {
     text?: String;
 }
 
-// fetch functions go in here
 
-function TestButton(props: TestButtonProps) {
+function Button(props: ButtonProps) {
     let [buttonStatus, setButtonStatus] = useState(false);
 
     console.log(buttonStatus);
@@ -40,4 +39,4 @@ function TestButton(props: TestButtonProps) {
     }
 }
 
-export default TestButton;
+export default Button;
