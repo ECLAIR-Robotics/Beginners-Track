@@ -3,10 +3,13 @@
 @tailwind utilities;
 
 @layer components {
-  .navbar_button {
-    @apply
+    .card {
+      background-color: theme('colors.white');
+      border-radius: theme('borderRadius.lg');
+      padding: theme('spacing.6');
+      box-shadow: theme('boxShadow.xl');
+    }
   }
-}
 body {
   background-color: #ffe1bc;
 }
