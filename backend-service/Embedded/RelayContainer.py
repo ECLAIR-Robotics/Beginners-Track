@@ -43,7 +43,7 @@ class RelayContainer:
         return True
 
     def setRelay(self, input_id, input_state):
-        r = self.get_relay(input_id)
+        r = self.getRelay(input_id)
         if (r != None):
             r.set_state(input_state)
 
@@ -51,8 +51,8 @@ class RelayContainer:
     #intialize all of our Relays to LOW
     def intializeLow(self):
         for x in self.relay_container:
-            x.setState(False)
-            self.db.setState(x.getID(), False)
+            x.set_state(False)
+            self.db.set_state(x.getID(), False)
 
     #this will return whatever relay is in relay_container[idx]
     def getRelayIndex(self, idx) -> Relay:
