@@ -24,21 +24,21 @@ class Relay:
         GPIO.output(self.pin_id, GPIO.LOW if self.state else GPIO.HIGH)
 
     #switches the state of the pin to its opposite
-    def set_state(self, input_state):
+    def setState(self, input_state):
         self.state = input_state
         GPIO.output(self.pin_id, GPIO.LOW if self.state else GPIO.HIGH)
     
     #can you read RelayContainer.py???
     #gets the pin id
-    def get_id(self) -> int:
+    def getId(self) -> int:
         return self.pin_id
     
     #gets the state of the relay
-    def get_relay_state(self) -> bool:
+    def getRelayState(self) -> bool:
         return self.state
 
     #prints out the contents of relay
-    def to_string(self):
+    def toString(self):
         print("[ID: {0} , State: {1}]".format(self.get_id(), self.get_relay_state()))
 
 
