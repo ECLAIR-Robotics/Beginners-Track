@@ -1,6 +1,9 @@
 from Relay import Relay
 from core.sqlite3.database import Database # With this statement we can grab the database class we made and then use it here
 
+GPIO_PIN_HIGHEST = 27
+GPIO_PIN_LOWEST = 0
+
 class RelayContainer:
     
     #create our container object
@@ -10,19 +13,27 @@ class RelayContainer:
         self.relay_container = []
         self.db = Database()
     
-    #lopp through our array and call Relay.toString() 
+    #implement helper method that returns size
+    def get_size(self) -> int:
+        return len(self.relay_container)
+
+    #loop through our array and call Relay.toString() 
     #Implement this method
     def __str__(self):
         for x in self.relay_container:
-            x.toString()
+            x.to_string()
             print("\n")
     
     #user is asking to create a new relay object with given id and boolean state
+
     def addRelay(self, input_id, input_state, name, disctiption):
         #check to see if the value already exists!
+        if (input_id > GPIO_PIN_HIGHEST or input_id < GPIO_PIN_LOWEST):
+            return
         for x in self.relay_container:
-            if (x.getID() == input_id):
-                x.setState(input_state)
+            if (x.get_id() == input_id):
+                x.set_state(input_state)
+                return
         self.relay_container.append(Relay(input_id, input_state))
         # Now, to see if it is connected to the database, we need to check if it is already there!
         #TODO
@@ -31,14 +42,20 @@ class RelayContainer:
         self.db.add(input_id, input_state, name, disctiption)
         return True
 
+    def set_relay(self, input_id, input_state):
+        r = self.get_relay(input_id)
+        if (r != None):
+            r.set_state(input_state)
+
+
     #intialize all of our Relays to LOW
-    def intializeLow(self):
+    def intialize_low(self):
         for x in self.relay_container:
             x.setState(False)
             self.db.setState(x.getID(), False)
 
     #this will return whatever relay is in relay_container[idx]
-    def getRelayIndex(self, idx) -> Relay:
+    def get_relay_index(self, idx) -> Relay:
         #check if it's out of range
         if(idx >= len(self.relay_container) or idx < 0):
             #we we don't want a array index out of bounds error, user gets nothing!
@@ -46,37 +63,23 @@ class RelayContainer:
         return self.relay_container[idx]
 
     #gets relay given a specified relay id, not the same as array index!
-    def getRelay(self, relay_id) -> Relay:
-        for x in self.relay_container:
-            if(x.getID() == relay_id):
-                return x
+    def get_relay(self, relay_id) -> Relay:
+        #check if relay_id is out of bounds!
+        if (relay_id > GPIO_PIN_HIGHEST or relay_id < GPIO_PIN_LOWEST):
+            return None
 
+        for x in self.relay_container:
+            if(x.get_id() == relay_id):
+                return x
+        #relay doesn't exit yet....
         return None
 
     #remove a relay from the array
-    def removeRelay(self, relay_id):
+    def remove_relay(self, relay_id):
         #turn off GPIO pin when removing
         offRelay = (self.getRelay(relay_id))
-        offRelay.setState(False)
-        self.relay_container.remove(offRelay)
-        if self.db.contains(offRelay):
-            self.db.remove(offRelay)
-    def updateRelay(self, id : int, state : bool) -> bool:
-        """
-        Updates the state of the relay and its value in the database
-
-        Args:
-            :param id of the relay that needs to be updated
-            :param state that the relay takes after the function is executed
-
-        Return:
-            :returns true if the relay was modified successfully
-
-        """
-        relay = self.getRelay(id)
-        if relay is not None:
-            # relay exists
-            relay.setRelayState(state)
-            self.db.updateRelayState(id, state)
-            return True
-        return False
+        if (offRelay != None):
+          offRelay.setState(False)
+          self.relay_container.remove(offRelay)
+          if self.db.contains(offRelay):
+              self.db.remove(offRelay)
