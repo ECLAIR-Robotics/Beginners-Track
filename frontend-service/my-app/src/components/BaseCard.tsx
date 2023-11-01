@@ -12,7 +12,7 @@ function BaseCard({Name, Text, ID} : Props) {
 
   
   return (
-    <div className = "Container">
+    <div className = "" >
         <h1 className = "text-base text-blue-600">    
            {Name} 
         </h1>
