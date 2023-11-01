@@ -19,7 +19,7 @@ function BaseCard({Name, Text, ID} : Props) {
         <p className = "text-base text-violet-600">
             {Text}
         </p>
-        <div className = "text-base text-green-600">   
+        <div className = "text-base text-green-600 py-7">   
         <ButtonGrid id = {ID}/>    
         </div>
     </div>
