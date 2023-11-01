@@ -29,6 +29,15 @@ to test if backend api is working, need to ssh in raspi:
   then go back to your local terminal and run npm start in my-app
 
     see api requests in backend-service/core/views.py
+
+
+    notes: 
+
+    useeffect 
+    usestate: give your website a state
+
+
+
   
  */
 
@@ -45,7 +54,7 @@ function App() {
   const [clicked, setClicked] = useState(false);
 
   useEffect(() => {
-    fetch('http://10.159.65.74:5000/relay/add')
+    fetch(`http://localhost:5000/`)
       .then(res => res.json())
       .then(data => setData(data))
   }, []);
@@ -57,6 +66,11 @@ function App() {
     setClicked(!clicked);
     console.log(clicked)
   };
+
+  const callBackend = () => {
+    // fetch the backend url (local host 5000 / whatever ?data=${testData})
+    
+  }
 
 
   return (

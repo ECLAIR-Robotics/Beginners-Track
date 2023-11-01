@@ -5,6 +5,18 @@ from embedded import Relay
 import RelayContainer
 
 
+'''
+query_params = test.args
+get request should have nonsensitive data in query params
+send info in body of a post request (JSON data)
+body = request.json (request.get_data()) (for JSON data, but will raise error for non JSON data)
+
+try:
+    body = request.get_data
+except Exception as e:
+    return jsonify({"message": "Error parsing JSON"}), 400
+'''
+
 @app.route("/", methods=["GET"])
 @cross_origin()
 def index():
