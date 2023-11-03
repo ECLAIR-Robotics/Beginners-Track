@@ -51,5 +51,5 @@ def addRelay():
 def deleteRelay():
     con = RelayContainer.RelayContainer()
     if (con.getRelay(17)):
-        con.removeRelay(17)
+        con.popRelay(0)
         return jsonify([{"message": "Relay deleted."}])
