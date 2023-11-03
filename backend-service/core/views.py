@@ -29,7 +29,7 @@ def relayOn():
     con = RelayContainer.RelayContainer()
     if (con.getRelay(17)):
         con.getRelay(17).setState(True)
-        return jsonify({"Relay has been turned on!"})
+        return jsonify([{"message": "Relay has been turned on!"}])
 
 
 @app.route("/relay/off", methods=["GET"])
@@ -37,7 +37,7 @@ def relayOff():
     con = RelayContainer.RelayContainer()
     if (con.getRelay(17)):
         con.getRelay(17).setState(False)
-        return jsonify({"Relay has been turned off!"})
+        return jsonify([{"message": "Relay has been turned off!"}])
 
 
 @app.route("/relay/add", methods=["POST"])
@@ -52,4 +52,4 @@ def deleteRelay():
     con = RelayContainer.RelayContainer()
     if (con.getRelay(17)):
         con.removeRelay(17)
-        return jsonify({"Relay deleted."})
+        return jsonify([{"message": "Relay deleted."}])
