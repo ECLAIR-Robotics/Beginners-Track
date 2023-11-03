@@ -40,7 +40,7 @@ def relayOff():
         return jsonify({"Relay has been turned off!"})
 
 
-@app.route("/relay/add", methods=["POST"])
+@app.route("/relay/add", methods=["GET", "POST"])
 def addRelay():
     con = RelayContainer.RelayContainer()
     con.addRelay(17, False)
