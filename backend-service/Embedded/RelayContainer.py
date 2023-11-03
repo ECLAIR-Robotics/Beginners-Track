@@ -84,7 +84,9 @@ class RelayContainer:
           offRelay.setState(False)
           self.relay_container.remove(offRelay)
           if self.db.contains(offRelay):
-              self.db.remove(offRelay)
+                return self.db.remove(offRelay)
+          
+        return None
 
     def getAllRelays(self):
-        return self.db.getAllRelays()
+        return self.db.getAllDevices()
