@@ -13,7 +13,7 @@ class Database:
         if result:
             print(f"{self.table_name} is online.")
         else:
-            self.cursor.execute(f"CREATE TABLE {Database.table_name} (id INTEGER PRIMARY KEY, state bool);") # Uncomment this line and fill out thing 
+            self.cursor.execute(f"CREATE TABLE {Database.table_name} (id INTEGER PRIMARY KEY, state BOOL, name TEXT, description TEXT);")  
             print(f"The table '{self.table_name}' is online and instantiated ")
         
     
@@ -26,7 +26,9 @@ class Database:
         result = self.cursor.fetchone()
         
 
-    def add(self, id : int, state : bool):
+    def add(self, id : int, state : bool, name, description):
+        self.cursor.execute(f"insert into {Database.table_name} (id,state,name,description) values({id},{state}, {name}, {description})")
+        print("Umer is the best boss")
         """
         Adds a device entity into the database
 
@@ -52,7 +54,7 @@ class Database:
         Raises:
             ValueError: If a device with the id doesn't exist
         """
-       
+        self.cursor.execute(f"SELECT state FROM {Database.table_name} WHERE id = {id}")
 
     
     def remove(self, id : int) -> bool:
@@ -87,6 +89,8 @@ class Database:
         Raises:
             ValueError: If a device with the id doesn't exist
         """
+        
+        self.cursor.execute(f"UPDATE {Database.table_name} SET state = {state} WHERE id = {id}")
     
     
     def getAllDevices(self) -> list:
@@ -96,6 +100,9 @@ class Database:
         Return:
             :return list of all the devices in the database
         """
+        self.cursor.execute(f"SELECT * from {Database.table_name}")
+        return self.cursor.fetchall()
+        
         
 
     
