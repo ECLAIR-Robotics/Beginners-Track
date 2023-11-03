@@ -16,7 +16,7 @@ class RelayContainer:
 
     
     #implement helper method that returns size
-    def get_size(self) -> int:
+    def getSize(self) -> int:
         return len(self.relay_container)
 
     #loop through our array and call Relay.toString() 
@@ -44,20 +44,20 @@ class RelayContainer:
         self.db.add(input_id, input_state, name, disctiption)
         return True
 
-    def set_relay(self, input_id, input_state):
-        r = self.get_relay(input_id)
+    def setRelay(self, input_id, input_state):
+        r = self.getRelay(input_id)
         if (r != None):
             r.set_state(input_state)
 
 
     #intialize all of our Relays to LOW
-    def intialize_low(self):
+    def intializeLow(self):
         for x in self.relay_container:
-            x.setState(False)
-            self.db.setState(x.getID(), False)
+            x.set_state(False)
+            self.db.set_state(x.getID(), False)
 
     #this will return whatever relay is in relay_container[idx]
-    def get_relay_index(self, idx) -> Relay:
+    def getRelayIndex(self, idx) -> Relay:
         #check if it's out of range
         if(idx >= len(self.relay_container) or idx < 0):
             #we we don't want a array index out of bounds error, user gets nothing!
@@ -65,7 +65,7 @@ class RelayContainer:
         return self.relay_container[idx]
 
     #gets relay given a specified relay id, not the same as array index!
-    def get_relay(self, relay_id) -> Relay:
+    def getRelay(self, relay_id) -> Relay:
         #check if relay_id is out of bounds!
         if (relay_id > GPIO_PIN_HIGHEST or relay_id < GPIO_PIN_LOWEST):
             return None
@@ -77,7 +77,7 @@ class RelayContainer:
         return None
 
     #remove a relay from the array
-    def remove_relay(self, relay_id):
+    def removeRelay(self, relay_id):
         #turn off GPIO pin when removing
         offRelay = (self.getRelay(relay_id))
         if (offRelay != None):
