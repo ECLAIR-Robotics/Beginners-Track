@@ -41,12 +41,12 @@ to test if backend api is working, need to ssh in raspi:
   
  */
 
-const ids = [
-  "Relay 4",
-  "Relay 17",
-  "Relay 22",
-  "Relay 27"
-]
+// const ids = [
+//   "Relay 4",
+//   "Relay 17",
+//   "Relay 22",
+//   "Relay 27"
+// ]
 
 function App() {
 

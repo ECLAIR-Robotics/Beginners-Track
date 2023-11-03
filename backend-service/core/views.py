@@ -17,39 +17,39 @@ except Exception as e:
     return jsonify({"message": "Error parsing JSON"}), 400
 '''
 
+
 @app.route("/", methods=["GET"])
 @cross_origin()
 def index():
-    con = RelayContainer.RelayContainer()
     return jsonify([{"message": "Home Automation API is Running!"}]), 200
 
 
 @app.route("/relay/on", methods=["GET"])
 def relayOn():
     con = RelayContainer.RelayContainer()
-    if (con.getRelay(1)):
-        con.getRelay(1).setState(True)
+    if (con.getRelay(17)):
+        con.getRelay(17).setState(True)
         return jsonify({"Relay has been turned on!"})
 
 
 @app.route("/relay/off", methods=["GET"])
 def relayOff():
     con = RelayContainer.RelayContainer()
-    if (con.getRelay(1)):
-        con.getRelay(1).setState(False)
+    if (con.getRelay(17)):
+        con.getRelay(17).setState(False)
         return jsonify({"Relay has been turned off!"})
 
 
 @app.route("/relay/add", methods=["POST"])
 def addRelay():
     con = RelayContainer.RelayContainer()
-    con.addRelay(1, True)
+    con.addRelay(17, False)
     return jsonify([{"message": "Relay added."}]), 200
 
 
 @app.route("/relay/delete", methods=["POST"])
 def deleteRelay():
     con = RelayContainer.RelayContainer()
-    if (con.getRelay(1)):
-        con.removeRelay(1)
+    if (con.getRelay(17)):
+        con.removeRelay(17)
         return jsonify({"Relay deleted."})
