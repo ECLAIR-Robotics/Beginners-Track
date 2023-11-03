@@ -1,4 +1,5 @@
 from flask import jsonify, request
+import json
 from core import app
 from Embedded.RelayContainer import RelayContainer
 from flask_cors import cross_origin
@@ -27,6 +28,22 @@ def relay():
     else:
         return jsonify({"updatedRelayState": (data["relayState"]), "success" : False}), 201
 
+
+@app.route("/getAll", methods=["GET"])
+@cross_origin()
+def total():
+    rsc = RelayContainer()
+    json_string = json.dumps(rsc.getAllRelays())
+    return json_string, 200
+   
+   
+@app.route("/relay/put", methods=["PUT"]) # Want cahs: Post
+@cross_origin() 
+def add():
+    data = request.get_json()
+    rsc = RelayContainer()
+    if(rsc.addRelay(data["relayNumber"], data["rela"])):
+        
 '''
     updatedRelayState: true
     success: True
