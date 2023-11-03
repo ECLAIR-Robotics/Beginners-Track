@@ -1,7 +1,7 @@
 import sqlite3
 
 class Database:
-    table_name = "table" # We only want one table so dont change this often (it'll create a new one when name cchanges)
+    table_name = "databaseTable" # We only want one table so dont change this often (it'll create a new one when name cchanges)
 
     def __init__(self):
         self.con = sqlite3.connect("sql.db")
@@ -13,7 +13,7 @@ class Database:
         if result:
             print(f"{self.table_name} is online.")
         else:
-            self.cursor.execute(f"CREATE TABLE {Database.table_name} (id INTEGER PRIMARY KEY, state BOOL, name TEXT, description TEXT);")  
+            self.cursor.execute(f"CREATE TABLE {Database.table_name} (id INTEGER, state BOOL, name TEXT, description TEXT, PRIMARY KEY(id));")  
             print(f"The table '{self.table_name}' is online and instantiated ")
         
 
@@ -160,3 +160,7 @@ class Database:
         )
     \''') {You dont need \ it was just so I can put a multiline string in a multiline string}
 '''
+
+
+data = Database()
+print(data.contains(5))
