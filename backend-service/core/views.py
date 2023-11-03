@@ -39,8 +39,14 @@ def total():
 @app.route("/delete", methods=["PUT"])
 @cross_origin()
 def remove():
+    rsc = RelayContainer()
+    data = request.get_json()
+    result = rsc.removeRelay(data["relayNumber"])
+    if(result):
+        return jsonify({"deleteRelay": (data["relayState"]), "success" : True}), 200 
+    return jsonify({"deleteRelay": (data["relayState"]), "success" : False}), 201
     
-   
+
    
 @app.route("/relay/put", methods=["PUT"]) # Want cahs: Post
 @cross_origin() 
@@ -50,7 +56,7 @@ def add():
     if(rsc.addRelay(data["relayNumber"], data["relay"], data["name"], data["disctiption"])):
         return jsonify({"addRelay": (data["relayNumber"]), "success" : True}), 200 
     else:
-        return jsonify({"addRelay": (data["relayNumber"]), "failure" : False}), 201
+        return jsonify({"addRelay": (data["relayNumber"]), "success" : False}), 201
     
 
 
