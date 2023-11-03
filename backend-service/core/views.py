@@ -23,7 +23,7 @@ def index():
 def relay():
     data = request.get_json()
     rsc = RelayContainer()
-    if rsc.updateRelay(data["relayNumber"], data["relayState"]):
+    if rsc.setRelay(data["relayNumber"], data["relayState"]):
         return jsonify({"updatedRelayState": (data["relayState"]), "success" : True}), 200 
     else:
         return jsonify({"updatedRelayState": (data["relayState"]), "success" : False}), 201
@@ -42,8 +42,12 @@ def total():
 def add():
     data = request.get_json()
     rsc = RelayContainer()
-    if(rsc.addRelay(data["relayNumber"], data["rela"])):
-        
+    if(rsc.addRelay(data["relayNumber"], data["relay"], data["name"], data["disctiption"])):
+        return jsonify({"addRelay": (data["relayNumber"]), "success" : True}), 200 
+    else:
+        return jsonify({"addRelay": (data["relayNumber"]), "failure" : False}), 201
+
+
 '''
     updatedRelayState: true
     success: True
