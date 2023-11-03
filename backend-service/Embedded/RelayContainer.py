@@ -87,4 +87,4 @@ class RelayContainer:
               self.db.remove(offRelay)
 
     def getAllRelays(self):
-        return self.db.getAllRelays()
+        return self.db.getAllDevices()

@@ -33,8 +33,13 @@ def relay():
 @cross_origin()
 def total():
     rsc = RelayContainer()
-    json_string = json.dumps(rsc.getAllRelays())
-    return json_string, 200
+    json_string = rsc.getAllRelays()
+    return jsonify({"relayState": json_string, "success" : True}), 200
+
+@app.route("/delete", methods=["PUT"])
+@cross_origin()
+def remove():
+    
    
    
 @app.route("/relay/put", methods=["PUT"]) # Want cahs: Post
@@ -46,6 +51,7 @@ def add():
         return jsonify({"addRelay": (data["relayNumber"]), "success" : True}), 200 
     else:
         return jsonify({"addRelay": (data["relayNumber"]), "failure" : False}), 201
+    
 
 
 '''
