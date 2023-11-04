@@ -50,3 +50,7 @@ class Model:
     def getAllRelays(self):
         self.cursor.execute(f"SELECT * FROM {Model.TABLE_NAME}")
         return self.cursor.fetchall()
+    
+    def clearAll(self):
+        self.cursor.execute(f"DELETE FROM {Model.TABLE_NAME}")
+        self.connection.commit()

@@ -75,3 +75,7 @@ class RelayContainer:
                 relay.setState(state)
                 self.m.updateRelayState(state, id)
                 return True
+
+    def clearAll(self):
+        self.relays.clear()
+        self.m.clearAll()
