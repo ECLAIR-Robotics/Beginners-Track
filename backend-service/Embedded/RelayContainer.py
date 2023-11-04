@@ -90,3 +90,4 @@ class RelayContainer:
 
     def getAllRelays(self):
         return self.db.getAllDevices()
+    
