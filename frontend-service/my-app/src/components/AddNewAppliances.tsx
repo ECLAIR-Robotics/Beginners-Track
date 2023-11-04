@@ -9,10 +9,45 @@ function ANA() {
   // nameTextBox.placeholder = "Enter new appliance"
 
   const [name, setName] = useState<String>('')
+  const [desc, setDesc] = useState<String>('')
+  const [id, setID] = useState<String>('')
+
+  const callBackend = () => {
+    console.log("backend:")
+    fetch(`http://10.159.64.251:5000/`,
+        {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              'name': name,
+              'desc': desc,
+              'id': id
+          })
+        }
+    )
+        .then(response => response.json())
+        .then(data => {
+            console.log(data[0]["message"])
+        })
+  }
+
+  function handleClick() {
+    console.log('Submitted name:', name);
+    console.log('Submitted desc:', desc);
+    console.log('Submitted ID:', id);
+  }
+
+  function handleInput() {
+    // TODO: Make this later, check if input is valid
+  }
   
-  useEffect(()=>{
-    console.log(name)
-  }, [name])
+  // useEffect(()=>{
+  //   console.log('name:', name)
+  //   console.log('desc:', desc)
+  //   console.log('id:', id)
+  // }, [name, desc, id])
 
   const nav = useNavigate()
     const changePage = () => {
@@ -32,17 +67,17 @@ function ANA() {
 
           <div className =".row">
             <div className='Appliance Description'>
-                Description: <input className="description-input" type="text" placeholder="Enter description" />
+                Description: <input className="description-input" onChange={e => setDesc(e.target.value)} type="text" placeholder="Enter description" />
             </div> 
           </div>
 
           <div className =".row">
             <div className='Appliance ID'>
-                ID: <input className="id-input" type="text" placeholder="Enter appliance ID" />
+                ID: <input className="id-input" onChange={e => setID(e.target.value)} type="text" placeholder="Enter appliance ID" />
             </div> 
           </div>
 
-        <button className='bg-gray-500'>Submit</button>
+        <button className='bg-gray-500' onClick={callBackend}>Submit</button>
 
         <button className='bg-rose-300' onClick={changePage}>Go to Main Page</button>
       </div>
