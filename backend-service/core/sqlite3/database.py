@@ -28,10 +28,10 @@ class Database:
         return False
         
 
-    def add(self, id : int, state : bool, name, description):
-        self.cursor.execute(f"insert into {Database.table_name} (id,state,name,description) values({id},{state}, {name}, {description})")
-        print("Umer is the best boss")
+    def add(self, id : int, state : bool, name : str, description : str):
+        self.cursor.execute(f"INSERT INTO {Database.table_name} (id,state,name,description) VALUES({id},{state}, \"{name}\", \"{description}\")")
         self.con.commit()
+        return True
         """
         Adds a device entity into the database
 
@@ -160,7 +160,3 @@ class Database:
         )
     \''') {You dont need \ it was just so I can put a multiline string in a multiline string}
 '''
-
-
-data = Database()
-print(data.contains(5))
