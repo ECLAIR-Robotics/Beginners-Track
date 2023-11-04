@@ -27,9 +27,9 @@ function ButtonGrid(props : Props) {
             <h2 id="b1"> {state}</h2>
         </div>
 
-        <div className="row">
-            <div className ="col "><button onClick = {toggleOn} className="on">On</button></div>
-            <div className ="col"><button onClick = {toggleOff} className="off">Off</button></div>
+        <div className="flex flex-wrap justify-evenly gap-y-0">
+            <div className ="col gap-y-0"><button onClick = {toggleOn} className="on">On</button></div>
+            <div className ="col gap-y-0"><button onClick = {toggleOff} className="off">Off</button></div>
         </div>
 
     </div> 
