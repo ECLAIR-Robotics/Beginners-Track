@@ -12,6 +12,8 @@ class RelayContainer:
         #the goal of this is to have the user access particular Relay and alter it via the array
         self.relay_container = []
         self.db = Database()
+        self.relay_container = self.getAllRelays()
+
     
     #implement helper method that returns size
     def getSize(self) -> int:
@@ -82,4 +84,9 @@ class RelayContainer:
           offRelay.setState(False)
           self.relay_container.remove(offRelay)
           if self.db.contains(offRelay):
-              self.db.remove(offRelay)
+                return self.db.remove(offRelay)
+          
+        return None
+
+    def getAllRelays(self):
+        return self.db.getAllDevices()
