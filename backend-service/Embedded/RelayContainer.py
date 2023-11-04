@@ -1,5 +1,6 @@
-from Relay import Relay
+
 from core.sqlite3.database import Database # With this statement we can grab the database class we made and then use it here
+from Embedded.Relay import Relay
 
 GPIO_PIN_HIGHEST = 27
 GPIO_PIN_LOWEST = 0
