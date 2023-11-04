@@ -12,14 +12,14 @@ function BaseCard({Name, Text, ID} : Props) {
 
   
   return (
-    <div className = "Container">
-        <h1 className = "text-base text-blue-600">    
+    <div className = "" >
+        <h1 className = "text-base text-blue-600 bg-red-900 border-2 border-red-900 rounded-t">    
            {Name} 
         </h1>
-        <p className = "text-base text-violet-600">
+        <p className = "text-base text-violet-600 bg-red-900 border-2 border-red-900">
             {Text}
         </p>
-        <div className = "text-base text-green-600">   
+        <div className = "text-base text-green-600 bg-red-900 border-2 border-red-900 rounded-b">   
         <ButtonGrid id = {ID}/>    
         </div>
     </div>
