@@ -25,12 +25,13 @@ def index():
 
 # ?id=17
 
+
 @app.route("/relay/on", methods=["GET"])
 def relayOn():
     id = request.args.get("id")
     con = RelayContainer.RelayContainer()
-    if (con.getRelay(id) & con.getRelay(id).getRelayState() == False):
-        con.getRelay(id).setState(True)
+    if (con.getRelay(int(id)) & con.getRelay(id).getRelayState() == False):
+        con.getRelay(int(id)).setState(True)
         return jsonify([{"message": "Relay has been turned on!"}])
     else:
         return jsonify([{"message": "Relay does not exist or is already on!"}])
@@ -40,8 +41,8 @@ def relayOn():
 def relayOff():
     id = request.args.get("id")
     con = RelayContainer.RelayContainer()
-    if (con.getRelay(id) & con.getRelay(id).getRelayState() == True):
-        con.getRelay(id).setState(False)
+    if (con.getRelay(int(id)) & con.getRelay(int(id)).getRelayState() == True):
+        con.getRelay(int(id)).setState(False)
         return jsonify([{"message": "Relay does not exist or is already off!"}])
 
 
@@ -49,7 +50,7 @@ def relayOff():
 def addRelay():
     id = request.form.get("id")
     con = RelayContainer.RelayContainer()
-    con.addRelay(id, False)
+    con.addRelay(int(id), False)
     allRelays = con.getAllRelays()
     return jsonify([{"message": "Relay added."}, {"relays": allRelays}]), 200
 
@@ -58,18 +59,21 @@ def addRelay():
 def deleteRelay():
     id = request.form.get("id")
     con = RelayContainer.RelayContainer()
-    if (con.getRelay(id)):
+    if (con.getRelay(int(id))):
         i = 0
         for relay in con.relays:
             if (relay.getID() == id):
                 con.popRelay(i)
-                return jsonify([{"message": "Relay deleted."}])
+                allRelays = con.getAllRelays()
+                return jsonify([{"message": "Relay deleted."}, {"relays": allRelays}]), 200
             i = i+1
     else:
         return jsonify([{"message": "Relay does not exist."}]), 200
 
+
 @app.route("/con/clear", methods=["POST"])
 def clearCon():
     con = RelayContainer.RelayContainer()
-    
-    return jsonify([{"message": "Container cleared."}])
+    con.clearAll()
+    allRelays = con.getAllRelays()
+    return jsonify([{"message": "Container cleared."}, {"relays": allRelays}]), 200
