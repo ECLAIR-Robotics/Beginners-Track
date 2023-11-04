@@ -38,7 +38,7 @@ class RelayContainer:
                 x.set_state(input_state)
                 return
         self.relay_container.append(Relay(input_id, input_state))
-        # Now, to see if it is connected to the database, we need to check if it is already there!
+        # Now, to see if it is connected to the database, wep need to check if it is already there!
         #TODO
         if self.db.contains(input_id) :
             return False
