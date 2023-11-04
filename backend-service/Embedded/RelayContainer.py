@@ -91,3 +91,12 @@ class RelayContainer:
     def getAllRelays(self):
         return self.db.getAllDevices()
     
+    relay_container = RelayContainer()
+
+    print(relay_container.getSize())
+
+    addRelay(1, True, True, True, True)
+    addRelay(3, True, False, False, True)
+    
+    print(relay_container.getSize())
+
