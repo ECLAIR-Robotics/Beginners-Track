@@ -1,7 +1,7 @@
 from flask import jsonify, request
 from core import app
 from flask_cors import cross_origin
-from embedded import Relay
+from embedded.Relay import Relay
 import RelayContainer
 
 
@@ -30,9 +30,9 @@ def index():
 def relayOn():
     id = request.args.get("id")
     con = RelayContainer.RelayContainer()
-    if (con.getRelay(int(id)) & con.getRelay(id).getRelayState() == False):
+    if (con.getRelay(int(id)) & con.getRelay(int(id)).getRelayState() == False):
         con.getRelay(int(id)).setState(True)
-        return jsonify([{"message": "Relay has been turned on!"}])
+        return jsonify([{"message": "Relay has been turned on!"}, ])
     else:
         return jsonify([{"message": "Relay does not exist or is already on!"}])
 
@@ -43,6 +43,8 @@ def relayOff():
     con = RelayContainer.RelayContainer()
     if (con.getRelay(int(id)) & con.getRelay(int(id)).getRelayState() == True):
         con.getRelay(int(id)).setState(False)
+        return jsonify([{"message": "Relay has been turned off!"}])
+    else:
         return jsonify([{"message": "Relay does not exist or is already off!"}])
 
 
