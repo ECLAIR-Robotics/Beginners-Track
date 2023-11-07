@@ -53,4 +53,6 @@ class Model:
     
     def clearAll(self):
         self.cursor.execute(f"DELETE FROM {Model.TABLE_NAME}")
+        self.cursor.execute(
+            f"CREATE TABLE IF NOT EXISTS {Model.TABLE_NAME} (relayID INTEGER PRIMARY KEY, relayState INTEGER)")
         self.connection.commit()

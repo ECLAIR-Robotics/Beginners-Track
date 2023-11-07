@@ -64,7 +64,7 @@ def deleteRelay():
     if (con.getRelay(int(id))):
         i = 0
         for relay in con.relays:
-            if (relay.getID() == id):
+            if (relay.getID() == int(id)):
                 con.popRelay(i)
                 allRelays = con.getAllRelays()
                 return jsonify([{"message": "Relay deleted."}, {"relays": allRelays}]), 200
