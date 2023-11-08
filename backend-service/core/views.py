@@ -71,7 +71,7 @@ def deleteRelay():
         return jsonify([{"message": "Relay does not exist."}]), 200
 
 
-@app.routh("/relay/all", methods=["GET"])
+@app.route("/relay/all", methods=["GET"])
 def getAllRelays():
     con = RelayContainer.RelayContainer()
     allRelays = con.getAllRelays()
