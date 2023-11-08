@@ -31,7 +31,8 @@ def relayOn():
     # check if relay exists how
     if (con.getRelay(int(id)).getRelayState() == False):
         con.getRelay(int(id)).setState(True)
-        return jsonify([{"message": "Relay has been turned on!"}, ])
+        print(con.getRelay(int(id)).getRelayState())
+        return jsonify([{"message": "Relay has been turned on!"}])
     else:
         return jsonify([{"message": "Relay does not exist or is already on!"}])
 
