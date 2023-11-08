@@ -14,9 +14,9 @@ function ANA() {
 
   const callBackend = () => {
     console.log("backend:")
-    fetch(`http://10.159.64.251:5000/`,
+    fetch(`http://127.0.0.1:5000/add`,
         {
-            method: 'GET',
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -24,12 +24,13 @@ function ANA() {
               'name': name,
               'desc': desc,
               'id': id
-          })
+          }
+          )
         }
     )
         .then(response => response.json())
         .then(data => {
-            console.log(data[0]["message"])
+            console.log(data["message"])
         })
   }
 

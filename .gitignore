@@ -2,3 +2,4 @@ backend-service/core/__pycache__/views.cpython-310.pyc
 .gitignore
 backend-service/__pycache__/base.cpython-310.pyc
 backend-service/core/__pycache__/__init__.cpython-310.pyc
+/venv
