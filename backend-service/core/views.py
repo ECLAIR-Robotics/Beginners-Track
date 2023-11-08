@@ -23,8 +23,6 @@ except Exception as e:
 def index():
     return jsonify([{"message": "Home Automation API is Running!"}]), 200
 
-# ?id=17
-
 
 @app.route("/relay/on", methods=["GET"])
 def relayOn():
@@ -71,6 +69,13 @@ def deleteRelay():
             i = i+1
     else:
         return jsonify([{"message": "Relay does not exist."}]), 200
+
+
+@app.routh("/relay/all", methods=["GET"])
+def getAllRelays():
+    con = RelayContainer.RelayContainer()
+    allRelays = con.getAllRelays()
+    return jsonify([{"relays": allRelays}]), 200
 
 
 @app.route("/con/clear", methods=["POST"])

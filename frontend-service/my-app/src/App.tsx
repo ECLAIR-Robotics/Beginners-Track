@@ -54,7 +54,7 @@ function App() {
   const [clicked, setClicked] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/`)
+    fetch(`http://10.159.66.57:5000/relay/add`) // WRONG URL
       .then(res => res.json())
       .then(data => setData(data))
   }, []);
@@ -69,7 +69,7 @@ function App() {
 
   const callBackend = () => {
     // fetch the backend url (local host 5000 / whatever ?data=${testData})
-    
+
   }
 
 
