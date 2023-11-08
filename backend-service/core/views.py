@@ -28,6 +28,8 @@ def index():
 def relayOn():
     id = request.args.get("id")
     con = RelayContainer.RelayContainer()
+    idAsInt = int(id)
+    print(idAsInt)
     if (con.getRelay(int(id)) & con.getRelay(int(id)).getRelayState() == False):
         con.getRelay(int(id)).setState(True)
         return jsonify([{"message": "Relay has been turned on!"}, ])
