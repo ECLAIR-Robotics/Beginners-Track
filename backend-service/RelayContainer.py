@@ -45,11 +45,11 @@ class RelayContainer:
     def getRelayIndex(self, index: int) -> Relay:
         return self.relays[index]
 
-    def getRelay(self, id: int) -> Relay:
+    def getRelay(self, id: int):
         for relay in self.relays:
             if relay.getID() == id:
                 return relay
-        return None
+        return False
 
     def popRelay(self, index: int) -> Relay:
         if not (index < len(self.relays)):
