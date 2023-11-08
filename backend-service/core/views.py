@@ -4,14 +4,14 @@ from core import app
 from Embedded.RelayContainer import RelayContainer
 from flask_cors import cross_origin
 
-@app.before_request
-def before_request():
-  headers = { 'Access-Control-Allow-Origin': '*',
-              'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS', 
-              'Access-Control-Allow-Headers': 'Content-Type' }
+# @app.before_request
+# def before_request():
+#   headers = { 'Access-Control-Allow-Origin': '*',
+#               'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS', 
+#               'Access-Control-Allow-Headers': 'Content-Type' }
   
-  if request.method == 'OPTIONS' or request.method == 'options':
-    return jsonify(headers), 200
+#   if request.method == 'OPTIONS' or request.method == 'options':
+#     return jsonify(headers), 200
 
 @app.route("/", methods=["GET"]) # route is a decorator
 @cross_origin()
@@ -36,7 +36,7 @@ def total():
     json_string = rsc.getAllRelays()
     return jsonify({"relayState": json_string, "success" : True}), 200
 
-@app.route("/delete", methods=["PUT"])
+@app.route("/delete", methods=["DELETE"])
 @cross_origin()
 def remove():
     rsc = RelayContainer()
@@ -56,8 +56,23 @@ def add():
     if(rsc.addRelay(data["relayNumber"], data["relay"], data["name"], data["disctiption"])):
         return jsonify({"addRelay": (data["relayNumber"]), "success" : True}), 200 
     else:
-        return jsonify({"addRelay": (data["relayNumber"]), "success" : False}), 201
+        return jsonify({"addRelay": (data["relayNumber"]), "success" : False}), 401
     
+@app.route("/relay/add", methods=["POST"])
+@cross_origin() 
+def create():
+    # process the data (request.get_json())
+    data = request.get_json()
+    rsc = RelayContainer()
+    resp = rsc.addRelay(data["id"], False, data["name"], data["desc"])
+    if resp:
+        # were chillin
+        return jsonify({"message": "Added.", "success" : True}), 201
+    else:
+        return jsonify({"message": "Bad Request.", "success" : False}), 401
+        # bad req
+        # 401
+        pass
 
 
 '''

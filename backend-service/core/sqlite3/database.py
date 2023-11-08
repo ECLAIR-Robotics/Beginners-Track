@@ -29,9 +29,6 @@ class Database:
         
 
     def add(self, id : int, state : bool, name : str, description : str):
-        self.cursor.execute(f"INSERT INTO {Database.table_name} (id,state,name,description) VALUES({id},{state}, \"{name}\", \"{description}\")")
-        self.con.commit()
-        return True
         """
         Adds a device entity into the database
 
@@ -42,6 +39,10 @@ class Database:
         Raises:
             ValueError: If another device with the same ID already exists in the database
         """
+        self.cursor.execute(f"INSERT INTO {Database.table_name} (id,state,name,description) VALUES({id},{state}, \"{name}\", \"{description}\")")
+        self.con.commit()
+        return True
+       
         
     
     def getState(self, id : int) -> bool:

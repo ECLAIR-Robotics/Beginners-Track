@@ -29,7 +29,7 @@ class RelayContainer:
     
     #user is asking to create a new relay object with given id and boolean state
 
-    def addRelay(self, input_id, input_state, name, disctiption):
+    def addRelay(self, input_id : int, input_state : bool, name, disctiption : str):
         #check to see if the value already exists!
         if (input_id > GPIO_PIN_HIGHEST or input_id < GPIO_PIN_LOWEST):
             return
