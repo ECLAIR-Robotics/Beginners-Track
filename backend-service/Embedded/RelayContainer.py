@@ -33,11 +33,12 @@ class RelayContainer:
         #check to see if the value already exists!
         if (input_id > GPIO_PIN_HIGHEST or input_id < GPIO_PIN_LOWEST):
             return
+        print(self.relay_container)
         for x in self.relay_container:
             if (x.get_id() == input_id):
                 x.set_state(input_state)
                 return
-        self.relay_container.append(Relay(input_id, input_state))
+        #self.relay_container.append(Relay(input_id, input_state))
         # Now, to see if it is connected to the database, wep need to check if it is already there!
         #TODO
         if self.db.contains(input_id) :
@@ -90,16 +91,12 @@ class RelayContainer:
         return None
 
     def getAllRelays(self):
-        return self.db.getAllDevices()
-    
+        self.relays = self.db.getAllDevices()
+        self.container = []
+        for relay in self.relays:
+            self.container.append(Relay(relay[0], relay[1]))
+        return self.container
+            
 
 
-relay_container = RelayContainer()
-
-print(relay_container.getSize())
-
-relay_container.addRelay(1, True, "thign1", "foo")
-relay_container.addRelay(3, False, "thing2", "fuh")
-    
-print(relay_container.getSize())
 
