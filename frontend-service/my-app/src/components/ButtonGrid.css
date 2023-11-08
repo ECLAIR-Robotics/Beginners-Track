@@ -1,53 +1,51 @@
 code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-      monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
 
-#Title{
-    text-align: center;
+#Title {
+  text-align: center;
 }
 
 .Grid-Container {
-    display: flex;
-    flex-direction:column;
-    justify-content: space-evenly;
-    align-items: center;
-    height: 10rem;
-    position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 10rem;
+  position: relative;
 }
 
 .row {
-    display: flex;
-    flex-direction:row;
-    justify-content: space-evenly;
-    width: 10rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 10rem;
 }
 
-button
-{   
-    display: inline-block;
-    outline: none;
-    cursor: pointer;
-    font-size: 16px;
-    line-height: 20px;
-    font-weight: 600;
-    border-radius: 8px;
-    padding: 14px 24px;
-    margin-bottom: 7rem;
-    width: 9rem;
-    height: 5rem;
-    border: none;
-    transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
-    
-    color: #fff;
+button {
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 10px 0px;
+  margin-bottom: 7rem;
+  width: 9rem;
+  height: 5rem;
+  border: none;
+  transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s,
+    -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
+
+  color: #fff;
 }
 
-.on{
-    background: rgb(15, 128, 49);
+.on {
+  background: rgb(15, 128, 49);
 }
 
-.off{
-    background: rgb(224, 80, 75);
+.off {
+  background: rgb(224, 80, 75);
 }
-
-  
