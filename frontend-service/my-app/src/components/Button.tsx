@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import logo from '.logo.svg';
 import '../App.css';
-import '../styles/testbutton.css'
+import '../styles/button.css'
 
 interface ButtonProps {
     text?: String;
@@ -17,7 +17,7 @@ function Button(props: ButtonProps) {
         return (
             <div className="innerContainer">
                 <h4>{props.text}</h4>
-                <div className='testbutton-enabled button' onClick={(event) => {
+                <div className='button-enabled button' onClick={(event) => {
                     setButtonStatus(false);
                 }} >
                     On
@@ -28,7 +28,7 @@ function Button(props: ButtonProps) {
         return (
             <div className="innerContainer">
                 <h4>{props.text}</h4>
-                <div className='testbutton-disabled button' onClick={(event) => {
+                <div className='button-disabled button' onClick={(event) => {
                     console.log("clicked");
                     setButtonStatus(true);
                 }}>

@@ -1,4 +1,4 @@
-.testbutton-enabled {
+.button-enabled {
     background-color: #4CAF50;
     /* Green */
     border: none;
@@ -13,7 +13,7 @@
     height: 1.5em;
 }
 
-.testbutton-disabled {
+.button-disabled {
     background-color: red;
     /* Red */
     border: none;

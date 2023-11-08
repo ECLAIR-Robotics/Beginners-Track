@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
-import TestImage from './static/Test.png'
+import Image from './static/Test.png'
 import './App.css';
 // import '../styles/card.css';
 import Button from './components/Button'

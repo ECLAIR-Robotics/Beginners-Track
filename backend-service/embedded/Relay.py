@@ -11,9 +11,9 @@ class Relay:
         GPIO.setup(self.relay_id, GPIO.OUT)
         GPIO.output(self.relay_id, GPIO.LOW)
 
-    def setState(self, state: bool):
-        self.state = state
-        if (state):
+    def setState(self, input_state: bool):
+        self.gpio_pin = input_state
+        if (input_state):
             GPIO.output(self.relay_id, GPIO.HIGH)
         else:
             GPIO.output(self.relay_id, GPIO.LOW)

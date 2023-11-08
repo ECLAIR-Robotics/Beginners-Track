@@ -112,10 +112,10 @@ h1 {
   transition: 0s
 }
 
-.testbutton-enabled:hover {
+.button-enabled:hover {
   background-color: #3e8e41;
 }
 
-.testbutton-disabled:hover {
+.button-disabled:hover {
   background-color: #aa3c3c;
 }
