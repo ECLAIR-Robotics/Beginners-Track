@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import TestImage from './static/Test.png'
 import './App.css';
 // import '../styles/card.css';
-import TestButton from './components/TestButton'
+import Button from './components/Button'
 import { useState, useEffect } from 'react';
 
 
@@ -80,12 +80,7 @@ function App() {
       <h2> *Hey, it's a HOME Automation System, and who takes care of homes? Maids, of course! </h2>
       <h1> Home Automation System </h1>
       <div className="flex-container">
-        <TestButton text="Light #1" />
-        <TestButton text="Light #2" />
-        <TestButton text="Light #3" />
-        <TestButton text="Fan #1" />
-        <TestButton text="Fan #2" />
-        <TestButton text="Fan #3" />
+        <Button text="Application" />
       </div> */}
       <div className="App">
         <button onClick={handleClick}>Add Relay</button>
