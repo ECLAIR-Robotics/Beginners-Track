@@ -4,7 +4,6 @@ import './index.css';
 import App from './App';
 // import Button from './components/Button'
 import reportWebVitals from './reportWebVitals';
-import Card from './components/Card'
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

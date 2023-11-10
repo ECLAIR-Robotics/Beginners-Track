@@ -3,8 +3,9 @@ import logo from './logo.svg';
 import Image from './static/Test.png'
 import './App.css';
 // import '../styles/card.css';
-import Button from './components/Button'
+import Button from './components/RelayButton'
 import { useState, useEffect } from 'react';
+import AddRelayForm from './components/AddRelayForm';
 
 
 /*
@@ -50,69 +51,43 @@ to test if backend api is working, need to ssh in raspi:
 
 function App() {
 
-  const [data, setData] = useState({ message: "" })
-  const [clicked, setClicked] = useState(false);
+  // const [data, setData] = useState({ message: "" })
+  // const [clicked, setClicked] = useState(false);
 
-  useEffect(() => {
-    fetch(`http://10.159.66.57:5000/relay/add`) // WRONG URL
-      .then(res => res.json())
-      .then(data => setData(data))
-  }, []);
-  useEffect(() => {
-    console.log(data)
-  }, [data]);
+  // useEffect(() => {
+  //   fetch(`http://10.159.66.57:5000/relay/add`) // WRONG URL
+  //     .then(res => res.json())
+  //     .then(data => setData(data))
+  // }, []);
+  // useEffect(() => {
+  //   console.log(data)
+  // }, [data]);
 
-  const handleClick = () => {
-    setClicked(!clicked);
-    console.log(clicked)
-  };
+  // const handleClick = () => {
+  //   setClicked(!clicked);
+  //   console.log(clicked)
+  // };
 
-  const callBackend = () => {
-    // fetch the backend url (local host 5000 / whatever ?data=${testData})
+  // const callBackend = () => {
+  //   // fetch the backend url (local host 5000 / whatever ?data=${testData})
 
-  }
+  // }
 
 
   return (
     <header>
-      {/* <img src={logo} className="App-logo" alt="logo" />
-      <img src={TestImage} className="Funny" alt="Maid" />
-      <h2> *Hey, it's a HOME Automation System, and who takes care of homes? Maids, of course! </h2>
-      <h1> Home Automation System </h1>
-      <div className="flex-container">
-        <Button text="Application" />
-      </div> */}
-      <div className="App">
-        <button onClick={handleClick}>Add Relay</button>
-      </div>
+      <AddRelayForm />
     </header>
   );
 }
 
 export default App;
 
-/*
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <img src={TestImage} className="Funny" alt="Maid"/>
-      </header>
-    </div>
-  );
-}
 
-export default App;
-*/
+/* <img src={logo} className="App-logo" alt="logo" />
+      <img src={TestImage} className="Funny" alt="Maid" />
+      <h2> *Hey, it's a HOME Automation System, and who takes care of homes? Maids, of course! </h2>
+      <h1> Home Automation System </h1>
+      <div className="flex-container">
+        <Button text="Application" />
+      </div> */
