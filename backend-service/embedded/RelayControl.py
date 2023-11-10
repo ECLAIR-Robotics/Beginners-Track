@@ -6,7 +6,7 @@ from db.model import Model
 class Relay:
 
     def __init__(self, relay_id: int, relay_state: bool):
-        self.relay_id = relay_id  # 4, 17, 27, 22
+        self.relay_id = relay_id  # 4, 17, 27, (?) 22
         self.relay_state = relay_state  # on true / off false
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(self.relay_id, GPIO.OUT)
@@ -20,7 +20,7 @@ class Relay:
             GPIO.output(self.relay_id, GPIO.LOW)  # turn off
 
     def getID(self):
-        return self.relay_id  # 4, 17, 27, 22
+        return self.relay_id  # 4, 17, 27, (?) 22
 
     def getRelayState(self):
         return self.relay_state  # on true / off false
