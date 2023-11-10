@@ -29,11 +29,10 @@ class RelayContainer:
     
     #user is asking to create a new relay object with given id and boolean state
 
-    def addRelay(self, input_id, input_state, name, disctiption):
+    def addRelay(self, input_id: int, input_state, name: str, disctiption: str):
         #check to see if the value already exists!
         if (input_id > GPIO_PIN_HIGHEST or input_id < GPIO_PIN_LOWEST):
             return
-        print(self.relay_container)
         for x in self.relay_container:
             if (x.get_id() == input_id):
                 x.set_state(input_state)
@@ -46,7 +45,7 @@ class RelayContainer:
         self.db.add(input_id, input_state, name, disctiption)
         return True
 
-    def setRelay(self, input_id, input_state):
+    def setRelay(self, input_id: int, input_state):
         r = self.getRelay(input_id)
         if (r != None):
             r.set_state(input_state)
@@ -59,7 +58,7 @@ class RelayContainer:
             self.db.set_state(x.getID(), False)
 
     #this will return whatever relay is in relay_container[idx]
-    def getRelayIndex(self, idx) -> Relay:
+    def getRelayIndex(self, idx: int) -> Relay:
         #check if it's out of range
         if(idx >= len(self.relay_container) or idx < 0):
             #we we don't want a array index out of bounds error, user gets nothing!
@@ -67,7 +66,7 @@ class RelayContainer:
         return self.relay_container[idx]
 
     #gets relay given a specified relay id, not the same as array index!
-    def getRelay(self, relay_id) -> Relay:
+    def getRelay(self, relay_id: int) -> Relay:
         #check if relay_id is out of bounds!
         if (relay_id > GPIO_PIN_HIGHEST or relay_id < GPIO_PIN_LOWEST):
             return None
@@ -79,7 +78,7 @@ class RelayContainer:
         return None
 
     #remove a relay from the array
-    def removeRelay(self, relay_id):
+    def removeRelay(self, relay_id: int):
         #turn off GPIO pin when removing
         offRelay = (self.getRelay(relay_id))
         if (offRelay != None):
