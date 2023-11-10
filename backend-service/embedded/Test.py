@@ -1,8 +1,8 @@
-from embedded.Relay import Relay
-import RelayContainer
+from embedded.RelayControl import RelayContainer
+from embedded.RelayControl import Relay
 
 if (__name__ == "__main__"):
-    rc = RelayContainer.RelayContainer()
+    rc = RelayContainer()
 
     print(rc.getAllRelays())
 
@@ -13,7 +13,7 @@ if (__name__ == "__main__"):
     r.setState(True)
     print("#2:", r.getRelayState())  # should be false
 
-    rc = RelayContainer.RelayContainer()
+    rc = RelayContainer()
     rc.add(r)
     print("#3: ", rc.str())
 

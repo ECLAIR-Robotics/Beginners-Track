@@ -20,10 +20,11 @@ class Model:
 
     def addRelay(self, id: int, state: bool):
         if self.checkIfRelayExists(id):
-            raise ValueError("Relay exists")
+            return False
         self.cursor.execute(
             f"INSERT INTO {Model.TABLE_NAME} VALUES ({id}, {state})")
         self.connection.commit()
+        return True
 
     def getRelayState(self, id: int):
         if not (self.checkIfRelayExists(id)):
@@ -34,23 +35,24 @@ class Model:
 
     def dropRelay(self, id: int):
         if not (self.checkIfRelayExists(id)):
-            raise ValueError("Relay does not exist")
+            return False
         self.cursor.execute(
             f"DELETE FROM {Model.TABLE_NAME} WHERE relayID={id}")
         self.connection.commit()
+        return True
 
     def updateRelayState(self, state: bool, id: int):
         if not (self.checkIfRelayExists(id)):
             raise ValueError("Relay does not exist")
-        # self.cursor.execute("SELECT relayID FROM relays WHERE relayID=?", (id))
         self.cursor.execute(
             f"UPDATE {Model.TABLE_NAME} SET relayState={state} WHERE relayID={id}")
         self.connection.commit()
+        return True
 
     def getAllRelays(self):
         self.cursor.execute(f"SELECT * FROM {Model.TABLE_NAME}")
         return self.cursor.fetchall()
-    
+
     def clearAll(self):
         self.cursor.execute(f"DELETE FROM {Model.TABLE_NAME}")
         self.cursor.execute(

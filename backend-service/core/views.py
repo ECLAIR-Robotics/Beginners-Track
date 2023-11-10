@@ -1,8 +1,7 @@
 from flask import jsonify, request
 from core import app
 from flask_cors import cross_origin
-from embedded.Relay import Relay
-import RelayContainer
+from embedded.RelayControl import RelayContainer
 
 
 '''
@@ -24,60 +23,67 @@ def index():
     return jsonify([{"message": "Home Automation API is Running!"}]), 200
 
 
-@app.route("/relay/on", methods=["GET"])
-def relayOn():
-    id = request.args.get("id")
-    con = RelayContainer.RelayContainer()
-    # check if relay exists how
-    if (con.getRelay(int(id)).getRelayState() == False):
-        con.getRelay(int(id)).setState(True)
-        print(con.getRelay(int(id)).getRelayState())
-        return jsonify([{"message": "Relay has been turned on!"}])
-    else:
-        return jsonify([{"message": "Relay does not exist or is already on!"}])
-
-
-@app.route("/relay/off", methods=["GET"])
-def relayOff():
-    id = request.args.get("id")
-    con = RelayContainer.RelayContainer()
-    if (con.getRelay(int(id)).getRelayState() == True):
-        con.getRelay(int(id)).setState(False)
-        return jsonify([{"message": "Relay has been turned off!"}])
-    else:
-        return jsonify([{"message": "Relay does not exist or is already off!"}])
-
-
 @app.route("/relay/add", methods=["POST"])
 def addRelay():
-    id = request.form.get("id")
-    con = RelayContainer.RelayContainer()
-    con.addRelay(int(id), False)
-    allRelays = con.getAllRelays()
-    return jsonify([{"message": "Relay added."}, {"relays": allRelays}]), 200
-
-
-@app.route("/relay/delete", methods=["POST"])
-def deleteRelay():
-    id = request.form.get("id")
-    con = RelayContainer.RelayContainer()
-    if (con.getRelay(int(id))):
-        i = 0
-        for relay in con.relays:
-            if (relay.getID() == int(id)):
-                con.popRelay(i)
-                allRelays = con.getAllRelays()
-                return jsonify([{"message": "Relay deleted."}, {"relays": allRelays}]), 200
-            i = i+1
+    try:
+        data = request.get_json()
+    except Exception as e:
+        return jsonify([{"message": "Error parsing JSON"}]), 400
+    con = RelayContainer()
+    added = con.addRelay(data["id"], data["state"])
+    if added:
+        return jsonify([{"message": "Relay added."}, {"relays": con.getAllRelays()}])
     else:
-        return jsonify([{"message": "Relay does not exist."}]), 200
+        return jsonify([{"message": "Relay exists."}, {"relays": con.getAllRelays()}])
+
+
+@app.route("/relay/delete", methods=["PUT"])
+def deleteRelay():
+    try:
+        data = request.get_json()
+    except Exception as e:
+        return jsonify([{"message": "Error parsing JSON"}]), 400
+    con = RelayContainer()
+    deleted = con.popRelay(data["id"])
+    if deleted:
+        return jsonify([{"message": "Relay deleted."}, {"relays": con.getAllRelays()}])
+    else:
+        return jsonify([{"message": "Relay does not exist."}, {"relays": con.getAllRelays()}])
+
+
+@app.route("/relay/on", methods=["GET"])
+def relayOn():
+    try:
+        data = request.get_json()
+    except Exception as e:
+        return jsonify([{"message": "Error parsing JSON"}]), 400
+    con = RelayContainer()
+    if(con.checkExistence(data["id"])):
+        con.updateRelay(data["id"], True)
+        return jsonify([{"message": "Relay has been turned on or was already on!"}])
+    else:
+        return jsonify([{"message": "Relay does not exist!"}])
+
+
+@app.route("/relay/on", methods=["GET"])
+def relayOn():
+    try:
+        data = request.get_json()
+    except Exception as e:
+        return jsonify([{"message": "Error parsing JSON"}]), 400
+    con = RelayContainer()
+    if(con.checkExistence(data["id"])):
+        con.updateRelay(data["id"], False)
+        return jsonify([{"message": "Relay has been turned off or was already off!"}])
+    else:
+        return jsonify([{"message": "Relay does not exist!"}])
 
 
 @app.route("/relay/all", methods=["GET"])
 def getAllRelays():
-    con = RelayContainer.RelayContainer()
+    con = RelayContainer()
     allRelays = con.getAllRelays()
-    return jsonify([{"relays": allRelays}]), 200
+    return jsonify([{"relays": allRelays}])
 
 
 @app.route("/con/clear", methods=["POST"])
