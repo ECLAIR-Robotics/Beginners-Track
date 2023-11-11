@@ -62,7 +62,8 @@ def relayOn():
     con = RelayContainer()
     if(con.checkExistence(data["id"])):
         con.updateRelay(data["id"], True)
-        return jsonify([{"message": "Relay has been turned on or was already on!"}])
+        return jsonify([{"message": "Relay has been turned on or was already on!"},
+                        {"relays": con.getAllRelays()}])
     else:
         return jsonify([{"message": "Relay does not exist!"}])
 
@@ -76,7 +77,8 @@ def relayOff():
     con = RelayContainer()
     if(con.checkExistence(data["id"])):
         con.updateRelay(data["id"], False)
-        return jsonify([{"message": "Relay has been turned off or was already off!"}])
+        return jsonify([{"message": "Relay has been turned off or was already off!"},
+                       {"relays": con.getAllRelays()}])
     else:
         return jsonify([{"message": "Relay does not exist!"}])
 
@@ -90,7 +92,7 @@ def getAllRelays():
 
 @app.route("/con/clear", methods=["POST"])
 def clearCon():
-    con = RelayContainer.RelayContainer()
+    con = RelayContainer()
     con.clearAll()
     allRelays = con.getAllRelays()
     return jsonify([{"message": "Container cleared."}, {"relays": allRelays}]), 200
