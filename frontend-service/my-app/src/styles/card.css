@@ -1,0 +1,7 @@
+/* This is for the page decor only */
+
+body {
+  background-image: url('../../public/low-poly-grid-haikei.svg');
+  background-size: cover;
+  background-color: lightblue;
+}
