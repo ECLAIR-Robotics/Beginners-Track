@@ -78,6 +78,7 @@ class RelayContainer:
             raise ValueError("Relay does not exist")
 
     def popRelay(self, id: int):
+        print(f"Attempting to remove relay {id}")
         if not self.m.checkIfRelayExists(id):
             return False
         else:
