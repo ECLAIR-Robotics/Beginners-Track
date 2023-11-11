@@ -19,7 +19,6 @@ const AddRelayForm = () => {
                 />
             </form>
             <button>Add Relay</button>
-            
         </div>
 
     );

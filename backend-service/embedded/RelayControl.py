@@ -89,7 +89,7 @@ class RelayContainer:
                     return True  # true, popped
 
     def getAllRelays(self) -> [Relay]:
-        return self.m.getAllRelays()
+        return self.relays
 
     def updateRelay(self, id: int, state: bool) -> bool:
         for relay in self.relays:
