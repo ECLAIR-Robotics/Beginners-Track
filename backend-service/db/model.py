@@ -14,17 +14,14 @@ class Model:
         self.connection.commit()
 
     def checkIfRelayExists(self, id: int) -> bool:
-        self.cursor.execute(
-            f"SELECT 1 FROM {Model.TABLE_NAME} WHERE relayID='{id}';")
-        self.connection.commit()
+        self.cursor.execute(f"SELECT 1 FROM {Model.TABLE_NAME} WHERE relayID='{id}';")
         ret = self.cursor.fetchone()
         return bool(ret)
 
     def addRelay(self, id: int, state: bool):
         if self.checkIfRelayExists(id):
             return False
-        self.cursor.execute(
-            f"INSERT INTO {Model.TABLE_NAME} VALUES ({id}, {state})")
+        self.cursor.execute(f"INSERT INTO {Model.TABLE_NAME} VALUES ('{id}', '{state}')")
         self.connection.commit()
         return True
 

@@ -1,9 +1,31 @@
 import "../styles/form.css"
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const AddRelayForm = () => {
 
+    const ids = [4, 17, 22, 27]
+
     const [name, setName] = useState('');
+
+    const [clicked, setClicked] = useState(false)
+
+    const handleClick = () => {
+        setClicked(!clicked);
+        console.log(clicked)
+    }
+
+    useEffect(() => {
+        fetch(`http://10.159.66.155:5000/relay/add`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                id: ids[0],
+                state: name
+            })
+        })
+    }, [clicked]);
 
     return (
 
@@ -18,7 +40,7 @@ const AddRelayForm = () => {
                     onChange={(event) => setName(event.target.value)}
                 />
             </form>
-            <button>Add Relay</button>
+            <button onClick={handleClick}>Add Relay</button>
         </div>
 
     );
