@@ -45,10 +45,10 @@ def deleteRelay():
         return jsonify([{"message": "Error parsing JSON"}]), 400
     con = RelayContainer()
     deleted = con.popRelay(data["id"])
-    if deleted:
-        return jsonify([{"message": "Relay deleted."}, {"relays": con.getAllRelays()}])
-    else:
+    if deleted == None:
         return jsonify([{"message": "Relay does not exist."}, {"relays": con.getAllRelays()}])
+    else:
+        return jsonify([{"message": "Relay deleted."}, {"relays": con.getAllRelays()}])
 
 
 @app.route("/relay/on", methods=["GET"])
