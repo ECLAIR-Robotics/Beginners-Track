@@ -79,7 +79,7 @@ class RelayContainer:
 
     def popRelay(self, int: id) -> Relay:
         if not self.m.checkIfRelayExists(id):
-            raise ValueError("Relay does not exist")
+            return False
         else:
             for index, relay in enumerate(self.relays):
                 if relay.getID() == id:
