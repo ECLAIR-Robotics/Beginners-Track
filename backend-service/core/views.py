@@ -44,8 +44,6 @@ def deleteRelay():
     except Exception as e:
         return jsonify([{"message": "Error parsing JSON"}]), 400
     con = RelayContainer()
-    if(data == None):
-        return jsonify([{"message": "Error parsing JSON"}]), 400
     deleted = con.popRelay(data["id"])
     if deleted == None:
         return jsonify([{"message": "Relay does not exist."}, {"relays": con.getAllRelays()}])

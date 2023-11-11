@@ -29,7 +29,7 @@ class Model:
         if not (self.checkIfRelayExists(id)):
             raise ValueError("Relay does not exist")
         self.cursor.execute(
-            f"SELECT relayState FROM {Model.TABLE_NAME} WHERE relayID={id}")
+            f"SELECT relayState FROM {Model.TABLE_NAME} WHERE relayID='{id}'")
         self.connection.commit()
         return bool(self.cursor.fetchone()[0])
 
@@ -37,7 +37,7 @@ class Model:
         if not (self.checkIfRelayExists(id)):
             return False
         self.cursor.execute(
-            f"DELETE FROM {Model.TABLE_NAME} WHERE relayID={id}")
+            f"DELETE FROM {Model.TABLE_NAME} WHERE relayID='{id}'")
         self.connection.commit()
         return True
 
@@ -45,7 +45,7 @@ class Model:
         if not (self.checkIfRelayExists(id)):
             raise ValueError("Relay does not exist")
         self.cursor.execute(
-            f"UPDATE {Model.TABLE_NAME} SET relayState={state} WHERE relayID={id}")
+            f"UPDATE {Model.TABLE_NAME} SET relayState='{state}' WHERE relayID='{id}'")
         self.connection.commit()
         return True
 
