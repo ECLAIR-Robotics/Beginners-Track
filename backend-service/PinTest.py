@@ -1,7 +1,5 @@
-from RelayContainer import RelayContainer
-from Relay import Relay
+from Embedded.RelayContainer import RelayContainer
 import unittest
-import RPi.GPIO as GPIO
 import time
 
 class PinTestCase(unittest.TestCase):

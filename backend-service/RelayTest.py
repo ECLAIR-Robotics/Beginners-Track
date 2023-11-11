@@ -1,5 +1,4 @@
-from RelayContainer import RelayContainer
-from Relay import Relay
+from Embedded.RelayContainer import RelayContainer
 import unittest
 
 class RelayContainerTestCase(unittest.TestCase): 
