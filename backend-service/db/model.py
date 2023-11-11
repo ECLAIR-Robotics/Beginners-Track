@@ -16,6 +16,7 @@ class Model:
         self.cursor.execute(
             f"SELECT 1 FROM {Model.TABLE_NAME} WHERE relayID='{id}';")
         ret = self.cursor.fetchone()
+        print(ret)
         return bool(ret)
 
     def addRelay(self, id: int, state: bool):
