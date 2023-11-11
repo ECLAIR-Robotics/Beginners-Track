@@ -77,7 +77,7 @@ class RelayContainer:
         else:
             raise ValueError("Relay does not exist")
 
-    def popRelay(self, int: id) -> Relay:
+    def popRelay(self, int: id):
         if not self.m.checkIfRelayExists(id):
             return False
         else:

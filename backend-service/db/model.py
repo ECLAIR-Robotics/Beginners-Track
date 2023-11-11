@@ -33,6 +33,7 @@ class Model:
             raise ValueError("Relay does not exist")
         self.cursor.execute(
             f"SELECT relayState FROM {Model.TABLE_NAME} WHERE relayID={id}")
+        self.connection.commit()
         return bool(self.cursor.fetchone()[0])
 
     def dropRelay(self, id: int):
@@ -53,6 +54,7 @@ class Model:
 
     def getAllRelays(self):
         self.cursor.execute(f"SELECT * FROM {Model.TABLE_NAME}")
+        self.connection.commit()
         return self.cursor.fetchall()
 
     def clearAll(self):
