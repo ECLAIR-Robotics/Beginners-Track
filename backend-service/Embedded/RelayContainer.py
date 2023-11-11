@@ -15,7 +15,6 @@ class RelayContainer:
         self.db = Database()
         self.relay_container = self.getAllRelays()
 
-    
     #implement helper method that returns size
     def getSize(self) -> int:
         return len(self.relay_container)
@@ -35,6 +34,7 @@ class RelayContainer:
             return
         print(self.relay_container)
         for x in self.relay_container:
+            assert isinstance(x, Relay)
             if (x.get_id() == input_id):
                 x.set_state(input_state)
                 return
@@ -83,7 +83,7 @@ class RelayContainer:
         #turn off GPIO pin when removing
         offRelay = (self.getRelay(relay_id))
         if (offRelay != None):
-          offRelay.setState(False)
+          offRelay.set_state(False)
           self.relay_container.remove(offRelay)
           if self.db.contains(offRelay):
                 return self.db.remove(offRelay)

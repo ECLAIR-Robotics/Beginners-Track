@@ -27,16 +27,16 @@ class PinTestCase(unittest.TestCase):
 
         for i in range(1, wait):
             self.con.setRelay(4, True)
-            time.sleep(1/i)
+            time.sleep(10/i)
             self.con.setRelay(4, False)
             self.con.setRelay(17, True)
-            time.sleep(1/i)
+            time.sleep(10/i)
             self.con.setRelay(17, False)
             self.con.setRelay(27, True)
-            time.sleep(1/i)
+            time.sleep(10/i)
             self.con.setRelay(27, False)
             self.con.setRelay(22, True)
-            time.sleep(1/i)
+            time.sleep(10/i)
             self.con.setRelay(22, False)
 
 

@@ -1,7 +1,7 @@
 from flask import jsonify, request
 import json
 from core import app
-from Embedded.RelayContainer import RelayContainer
+#from Embedded.RelayContainer import RelayContainer
 from flask_cors import cross_origin
 
 @app.before_request
