@@ -14,7 +14,7 @@ function ANA() {
 
   const callBackend = () => {
     console.log("backend:")
-    fetch(`http://127.0.0.1:5000/add`,
+    fetch(`http://10.159.65.255:5000/relay/add`,
         {
             method: 'POST',
             headers: {
@@ -74,7 +74,7 @@ function ANA() {
 
           <div className =".row">
             <div className='Appliance ID'>
-                ID: <input className="id-input" onChange={e => setID(e.target.value)} type="text" placeholder="Enter appliance ID" />
+                ID: <input className="id-input" onChange={e => setID(e.target.value)} type="number" placeholder="Enter appliance ID" />
             </div> 
           </div>
 
