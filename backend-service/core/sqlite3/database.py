@@ -17,12 +17,12 @@ class Database:
             print(f"The table '{self.table_name}' is online and instantiated ")
         
 
-    def contains(self, id : int) -> bool:
+    def contains(self, relay_id : int) -> bool:
         """
         Return
             :return True if a device entity with the 'id' exists
         """
-        self.cursor.execute(f"SELECT id FROM {Database.table_name} WHERE id={id}")
+        self.cursor.execute(f"SELECT id FROM {Database.table_name} WHERE id={relay_id}")
         if(self.cursor.fetchone()): 
             return True
         return False
@@ -78,12 +78,11 @@ class Database:
             :return True if device was successfully dropped
         """
         if(self.contains(id)):
-            self.cursor.execute(f"Delete from {Database.table_name} where id={id}")
+            self.cursor.execute(f"DELETE from {Database.table_name} where id={id}")
             self.con.commit()
             return True
         return False
     
-
     def setState(self, id: int, state: bool) -> bool:
         """
         Updates the state of the device with the passed in id
@@ -111,6 +110,7 @@ class Database:
             :return list of all the devices in the database
         """
         self.cursor.execute(f"SELECT * from {Database.table_name}")
+        
         return self.cursor.fetchall()
         
         

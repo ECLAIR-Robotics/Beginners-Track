@@ -38,8 +38,8 @@ class Relay:
         return self.state
 
     #prints out the contents of relay
-    def to_string(self):
-        print("[ID: {0} , State: {1}]".format(self.get_id(), self.get_relay_state()))
+    def __str__(self):
+        return "[ID: {0} , State: {1}]".format(self.get_id(), self.get_relay_state())
 
 
     
