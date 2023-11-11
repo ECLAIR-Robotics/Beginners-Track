@@ -65,8 +65,8 @@ def relayOn():
         return jsonify([{"message": "Relay does not exist!"}])
 
 
-@app.route("/relay/on", methods=["GET"])
-def relayOn():
+@app.route("/relay/off", methods=["GET"])
+def relayOff():
     try:
         data = request.get_json()
     except Exception as e:
