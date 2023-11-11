@@ -11,12 +11,13 @@ class Model:
         self.cursor = self.connection.cursor()
         self.cursor.execute(
             f"CREATE TABLE IF NOT EXISTS {Model.TABLE_NAME} (relayID INTEGER PRIMARY KEY, relayState INTEGER)")
+        self.connection.commit()
 
     def checkIfRelayExists(self, id: int) -> bool:
         self.cursor.execute(
             f"SELECT 1 FROM {Model.TABLE_NAME} WHERE relayID='{id}';")
+        self.connection.commit()
         ret = self.cursor.fetchone()
-        print(ret)
         return bool(ret)
 
     def addRelay(self, id: int, state: bool):
