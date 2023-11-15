@@ -24,8 +24,12 @@ def relay():
 @cross_origin()
 def total():
     rsc = RelayContainer()
-    json_string = rsc.getAllRelays()
-    return jsonify({"relayState": json_string, "success" : True}), 200
+    devices = rsc.getAllDevices()
+    dictList = []
+    for device in devices:
+        dictList.append({ "id": device[0], "state": device[1], "name": device[2], "discription": device[3] })
+
+    return jsonify(dictList), 200
 
 @app.route("/delete", methods=["PUT"])
 @cross_origin()

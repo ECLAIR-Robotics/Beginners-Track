@@ -39,7 +39,6 @@ for relay in relay_container.getAllRelays():
 for i in range(27):
     print(i)
     relay_container.addRelay(i, 1, f"name{i}", f"disc{i}")
-    time.sleep(2)
 
 #print(relay_container.getSize())
 

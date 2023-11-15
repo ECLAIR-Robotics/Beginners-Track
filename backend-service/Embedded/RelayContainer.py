@@ -105,6 +105,7 @@ class RelayContainer:
             self.container.append(Relay(relay[0], relay[1]))
         return self.container
             
-
+    def getAllDevices(self):
+        return self.db.getAllDevices()
 
 
