@@ -5,6 +5,8 @@ from Embedded.Relay import Relay
 GPIO_PIN_HIGHEST = 27
 GPIO_PIN_LOWEST = 0
 
+#4, 17, 22 are the pins that work
+
 class RelayContainer:
     
     #create our container object
