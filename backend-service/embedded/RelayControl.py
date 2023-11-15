@@ -29,11 +29,13 @@ class Relay:
 
 class RelayContainer:
 
+    allIds = [4, 17, 22]
+
     def __init__(self):
         self.m = Model()
         self.relays = []
         for relay in self.m.getAllRelays():
-            # all all relays in db to container
+            # all relays in db to container
             self.relays.append(Relay(relay[0], relay[1]))
         print("RelayContainer Initialized")
 
@@ -109,3 +111,8 @@ class RelayContainer:
             relay.setState(False)
         self.relays.clear()
         self.m.clearAll()
+
+    def clearBackend(self):
+        for id in self.allIds:
+            self.addRelay(id, False)
+            self.clearAll()

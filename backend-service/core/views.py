@@ -20,6 +20,8 @@ except Exception as e:
 @app.route("/", methods=["GET"])
 @cross_origin()
 def index():
+    con = RelayContainer()
+    con.clearBackend()
     return jsonify([{"message": "Home Automation API is Running!"}]), 200
 
 
