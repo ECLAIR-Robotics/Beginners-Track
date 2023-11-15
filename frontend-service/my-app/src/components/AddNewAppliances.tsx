@@ -14,7 +14,7 @@ function ANA() {
 
   const callBackend = () => {
     console.log("backend:")
-    fetch(`http://10.159.65.255:5000/relay/add`,
+    fetch(`http://10.159.64.112:5000/relay/add`, //TODO: Still need to make this IP not fixed and changeable depending on location
         {
             method: 'POST',
             headers: {
@@ -32,16 +32,6 @@ function ANA() {
         .then(data => {
             console.log(data["message"])
         })
-  }
-
-  function handleClick() {
-    console.log('Submitted name:', name);
-    console.log('Submitted desc:', desc);
-    console.log('Submitted ID:', id);
-  }
-
-  function handleInput() {
-    // TODO: Make this later, check if input is valid
   }
   
   // useEffect(()=>{
