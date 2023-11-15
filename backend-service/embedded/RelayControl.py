@@ -10,7 +10,8 @@ class Relay:
         self.relay_state = relay_state  # on true / off false
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(self.relay_id, GPIO.OUT)
-        GPIO.output(self.relay_id, GPIO.HIGH)  # initialize to off
+        self.setState(self.relay_state)
+        # GPIO.output(self.relay_id, GPIO.HIGH)  # initialize to off
 
     def setState(self, input_state: bool):
         self.relay_state = input_state
