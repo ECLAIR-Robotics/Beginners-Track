@@ -47,8 +47,8 @@ class RelayContainer:
             print(f"{relay.getID()}\t{relay.getRelayState()}")
 
     def addRelay(self, id: int, state: bool) -> bool:
-        self.relays.append(Relay(id, state))
         if not self.m.checkIfRelayExists(id):
+            self.relays.append(Relay(id, state))
             self.m.addRelay(id, state)  # add to db if it doesn't already exist
             return True  # true, added
         return False
