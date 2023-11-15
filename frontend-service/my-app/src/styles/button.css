@@ -1,16 +1,16 @@
 .button-enabled {
-    background-color: #4CAF50;
+    background-color: green;
     /* Green */
     border: none;
     color: white;
-    padding: 1em 3em;
+    padding: 1em 1em;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 1em;
     user-select: none;
     width: 6em;
-    height: 1.5em;
+    height: 3em;
 }
 
 .button-disabled {
@@ -18,12 +18,12 @@
     /* Red */
     border: none;
     color: white;
-    padding: 1em 3em;
+    padding: 1em 1em;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 1em;
     user-select: none;
     width: 6em;
-    height: 1.5em;
+    height: 3em;
 }

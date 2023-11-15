@@ -5,7 +5,7 @@ import './App.css';
 // import '../styles/card.css';
 import Button from './components/RelayButton'
 import { useState, useEffect } from 'react';
-import AddRelayForm from './components/AddRelayForm';
+import AddForm from './components/AddForm';
 
 
 /*
@@ -42,13 +42,6 @@ to test if backend api is working, need to ssh in raspi:
   
  */
 
-// const ids = [
-//   "Relay 4",
-//   "Relay 17",
-//   "Relay 22",
-//   "Relay 27"
-// ]
-
 function App() {
 
   // const [data, setData] = useState({ message: "" })
@@ -75,9 +68,17 @@ function App() {
 
 
   return (
-    <header>
-      <AddRelayForm />
-    </header>
+    <main className="">
+
+      <h1 className="mx-auto container flex justify center mt-20">
+        random tailwind practice thingy
+      </h1>
+
+      <h2 className="mx-auto container flex justify center mt-20">
+        <AddForm></AddForm>
+      </h2>
+
+    </main>
   );
 }
 
