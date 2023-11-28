@@ -22,18 +22,31 @@ function ButtonGrid(props: Props) {
 
   return (
     <div className="Grid-Container flex">
-      <div className="row">
-        <h2 id="b1"> {state}</h2>
+      <div className={`row `}>
+        <h2
+          id="b1"
+          className={`font-bold ${
+            state === "OFF" ? "text-black" : "text-white"
+          }`}
+        >
+          {state}
+        </h2>
       </div>
 
       <div className="grid grid-cols-2 gap-0">
         <div className="flex flex-wrap shrink justify-evenly gap-y-0">
-          <button onClick={toggleOn} className="on">
+          <button
+            onClick={toggleOn}
+            className="bg-red-500 hover:bg-red-700 transition-all"
+          >
             On
           </button>
         </div>
         <div className="flex flex-wrap shrink justify-evenly gap-y-0">
-          <button onClick={toggleOff} className="off">
+          <button
+            onClick={toggleOff}
+            className="bg-green-500 hover:bg-green-700 transition-all"
+          >
             Off
           </button>
         </div>
