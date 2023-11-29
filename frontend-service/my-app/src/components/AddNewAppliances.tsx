@@ -14,9 +14,9 @@ function ANA() {
 
   const callBackend = () => {
     console.log("backend:")
-    fetch(`http://10.159.64.251:5000/`,
+    fetch(`http://10.159.64.112:5000/relay/add`, //TODO: Still need to make this IP not fixed and changeable depending on location
         {
-            method: 'GET',
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -24,23 +24,14 @@ function ANA() {
               'name': name,
               'desc': desc,
               'id': id
-          })
+          }
+          )
         }
     )
         .then(response => response.json())
         .then(data => {
-            console.log(data[0]["message"])
+            console.log(data["message"])
         })
-  }
-
-  function handleClick() {
-    console.log('Submitted name:', name);
-    console.log('Submitted desc:', desc);
-    console.log('Submitted ID:', id);
-  }
-
-  function handleInput() {
-    // TODO: Make this later, check if input is valid
   }
   
   // useEffect(()=>{
@@ -73,7 +64,7 @@ function ANA() {
 
           <div className =".row">
             <div className='Appliance ID'>
-                ID: <input className="id-input" onChange={e => setID(e.target.value)} type="text" placeholder="Enter appliance ID" />
+                ID: <input className="id-input" onChange={e => setID(e.target.value)} type="number" placeholder="Enter appliance ID" />
             </div> 
           </div>
 
