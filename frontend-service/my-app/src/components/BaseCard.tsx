@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import ButtonGrid from "./ButtonGrid";
 
@@ -6,9 +6,10 @@ interface Props {
   Name: string;
   Text: string;
   ID: number;
+  state: boolean;
 }
 
-function BaseCard({ Name, Text, ID }: Props) {
+function BaseCard({ Name, Text, ID, state }: Props) {
   return (
     <div className="">
       <h1 className="text-xl text-blue-600 bg-red-900 border-2 border-red-900 rounded-t">
@@ -18,7 +19,7 @@ function BaseCard({ Name, Text, ID }: Props) {
         {Text}
       </p>
       <div className="text-base text-black-600 bg-red-900 border-2 border-red-900 rounded-b">
-        <ButtonGrid id={ID} />
+        <ButtonGrid id={ID} state={state} />
       </div>
     </div>
   );
