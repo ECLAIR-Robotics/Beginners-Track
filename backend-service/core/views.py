@@ -2,6 +2,7 @@ from flask import jsonify, request
 import json
 from core import app
 from Embedded.RelayContainer import RelayContainer
+from speech import speech_to_text
 from flask_cors import cross_origin
 
 @app.route("/", methods=["GET"]) # route is a decorator
@@ -27,7 +28,7 @@ def total():
     devices = rsc.getAllDevices()
     dictList = []
     for device in devices:
-        dictList.append({ "id": device[0], "state": device[1], "name": device[2], "discription": device[3] })
+        dictList.append({ "id": device[0], "state": device[1], "name": device[2], "description": device[3] })
 
     return jsonify(dictList), 200
 
@@ -48,7 +49,7 @@ def remove():
 def add():
     data = request.get_json()
     rsc = RelayContainer()
-    if(rsc.addRelay(data["relayNumber"], data["relay"], data["name"], data["disctiption"])):
+    if(rsc.addRelay(data["relayNumber"], data["relay"], data["name"], data["description"])):
         return jsonify({"addRelay": (data["relayNumber"]), "success" : True}), 200 
     else:
         return jsonify({"addRelay": (data["relayNumber"]), "success" : False}), 201
