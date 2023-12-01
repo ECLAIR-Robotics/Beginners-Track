@@ -50,7 +50,7 @@ function ANA() {
         </h1>
       </header>
 
-      <div className="mx-1 bg-[#9C9DAA] rounded py-2 pb-3">
+      <div className="mx-1 bg-[#81B29A] rounded py-2 pb-3">
         <div className="mx-3">
           <div className=".row mt-3">
             <div className="flex">
