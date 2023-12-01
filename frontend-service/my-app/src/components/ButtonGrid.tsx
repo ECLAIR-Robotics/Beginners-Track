@@ -57,7 +57,7 @@ function ButtonGrid(props: Props) {
       <div className={`row `}>
         <h2
           id="b1"
-          className={`font-bold ${
+          className={`font-bold text-3xl my-2${
             state === "OFF" ? "text-black" : "text-white"
           }`}
         >

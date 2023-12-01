@@ -43,50 +43,54 @@ function ANA() {
     nav("/");
   };
   return (
-    <div>
+    <div className="">
       <header>
         <h1 className="text-3xl font-bold underline #0f172a">
           Add new appliances here
         </h1>
       </header>
 
-      <div className=".row">
-        <div className="Appliance Name">
-          Name:{" "}
-          <input
-            className="name-input"
-            onChange={(e) => setName(e.target.value)}
-            type="text"
-            placeholder="Enter appliance name"
-          />
+      <div className="mx-1 bg-[#9C9DAA] rounded py-2 pb-3">
+        <div className="mx-3">
+          <div className=".row mt-3">
+            <div className="flex">
+              <div className="basis-1/4 text-left">{"Name:"}</div>
+              <input
+                className="name-input basis-5/6"
+                onChange={(e) => setName(e.target.value)}
+                type="text"
+                placeholder="Enter appliance name"
+              />
+            </div>
+          </div>
+
+          <div className=".row mt-3">
+            <div className="Appliance Description flex">
+              <div className="basis-1/4 text-left">Description: </div>
+              <input
+                className="description-input basis-5/6"
+                onChange={(e) => setDesc(e.target.value)}
+                type="text"
+                placeholder="Enter description"
+              />
+            </div>
+          </div>
+
+          <div className=".row mt-3">
+            <div className="Appliance ID flex">
+              <div className="basis-1/4 text-left">ID: </div>
+              <input
+                className="id-input basis-5/6"
+                onChange={(e) => setID(e.target.value)}
+                type="number"
+                placeholder="Enter appliance ID"
+              />
+            </div>
+          </div>
         </div>
       </div>
 
-      <div className=".row">
-        <div className="Appliance Description">
-          Description:{" "}
-          <input
-            className="description-input"
-            onChange={(e) => setDesc(e.target.value)}
-            type="text"
-            placeholder="Enter description"
-          />
-        </div>
-      </div>
-
-      <div className=".row">
-        <div className="Appliance ID">
-          ID:{" "}
-          <input
-            className="id-input"
-            onChange={(e) => setID(e.target.value)}
-            type="number"
-            placeholder="Enter appliance ID"
-          />
-        </div>
-      </div>
-
-      <button className="bg-gray-500" onClick={callBackend}>
+      <button className="bg-gray-500 mt-4" onClick={callBackend}>
         Submit
       </button>
 

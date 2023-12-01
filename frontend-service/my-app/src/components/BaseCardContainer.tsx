@@ -37,7 +37,7 @@ function BaseCardContainer() {
       });
   };
   return (
-    <div className="grid grid-cols-3 gap-4 bg-violet-300 border-8 border-violet-300">
+    <div className="grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-4 bg-[#3D405B] border-8 border-violet-300 rounded-xl mt-3">
       {inputData.map((elem, ind) => {
         return (
           <BaseCard

@@ -15,7 +15,7 @@ function BaseCard({ Name, Text, ID, state }: Props) {
       <h1 className="text-xl text-blue-600 bg-red-900 border-2 border-red-900 rounded-t">
         {Name}
       </h1>
-      <p className="pt-2 pb-8 text-lg text-violet-600 bg-red-900 border-2 border-red-900">
+      <p className="pt-8 pb-8 text-lg text-violet-600 bg-red-900 border-2 border-red-900">
         {Text}
       </p>
       <div className="text-base text-black-600 bg-red-900 border-2 border-red-900 rounded-b">

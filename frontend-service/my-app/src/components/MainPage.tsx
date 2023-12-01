@@ -16,27 +16,21 @@ function MainPage() {
   };
   return (
     <div>
-      {/* <TestButton title = {"Cool Button"} statingValue= {5}/>remove this and import when you are done using it*/}
-      {/* <TestButton title = {"Bad Button"} statingValue= {25}/>remove this and import when you are done using it*/}
-      {/* <ButtonGrid id={1}/>
-        <ButtonGrid id={2}/>
-        <ButtonGrid id={3}/> */}
-      <h1 className="text-3xl font-bold underline text-red-950">
-        Remote electrical controller{" "}
+      <h1 className="text-7xl md:text-3x1 font-bold text-[#81B29A]">
+        Remote Electrical Controller{" "}
       </h1>
       <BaseCardContainer />
-      <Footer />
-      <div>
-        <Link to="/ANA" onClick={changePage}>
+      {/* <Link to="/ANA" onClick={changePage}>
           Click to view the ANA page
-        </Link>
-        <button
-          onClick={changePage}
-          className="hover:text-green-900 transition-all"
-        >
-          Go to ANA
-        </button>
-      </div>
+        </Link> */}
+      <button
+        onClick={changePage}
+        className="mt-4 px-6 bg-[#E07A5F] text-[#F4F1DE] text-2x1 hover:text-green-900 transition-all"
+      >
+        Go to ANA
+      </button>
+      <button className="py-4 px-8 bg-black">e</button>
+      <Footer />
     </div>
   );
 }
